@@ -1,48 +1,42 @@
-from assets.banner_system.modify import BannerModify
-import socket
-import sys
-import os
-import requests
-import time
-import threading
-from dhooks import Webhook
-import requests
+## Modules
+import socket, sys, os, requests, time, threading, requests, random, select
 
+## Files
 from assets.Config.main import *
+from assets.banner_system.modify import *
+from assets.Config.current import *
 
-clear = "cls"
-host = "127.0.0.1"
-port = 55555
-hook = Webhook("https://discord.com/api/webhooks/844148531052412968/_uiWklaFSMI79_3NcKt45ZKumn6hvktS-mUSDnwxp_H630EIK8brKi74WWdcET_6HmH1")
-os.system(clear)
+host = "127.0.0.1" #requests.get("https://api.ipify.org").text | api = requests.get("https://api.hackertarget.com/geoip/?q=" + geoip) | api = requests.get("https://api.hackertarget.com/nmap/?q=" + nmap)
+port = random.randint(0, 65500)
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Try To Reuse Port Bypass TIME_WAIT Sometimes
 sock.bind((host, port))
 sock.listen()
 
-print("\033[37m[~ \033[33mWelcome to PyNet \033[37m~]")
+print(f"pyNET Started | Port: {port}")
 
-def server_start(client):
-        client.send("\x1b]0;Net\x07".encode("utf-8"))
-        client.send("\r\033[37m║\033[31mPyNetC2\033[37m║>\033[97m ".encode("utf-8"))
-        data = client.recv(512).decode("utf-8")
+def handle_connection(client, addr):
+        Current.CurrentInfo["IP"] = addr[0]
+
+        client.send(str(MainColors["hostname"]).encode("utf-8"))
+        client.settimeout(10)
+        username = client.recvfrom(1024) #fix this // does wait for response 
+        password = client.recvfrom(1024) #fix this // does wait for response 
+        client.send(str(username).encode("utf-8"))
+        client.send(str(password).encode("utf-8"))
         while(True):
-                if "help" in data:
-                        help_menu = open("help.txt", "r")
-                        client.send(help_menu)
-                elif "cls" in data:
-                        client.send(str.encode(MainColors["Clear"]))
-                elif "exit" in data:
-                        client.close()
-                elif " " in data:
-                        print("")
-                else:
-                        print("")
+                client.send(str(MainColors["hostname"]).encode("utf-8"))
+                data = client.recv(512).decode("utf-8")
+                data = str(data.strip()).replace("\r\n", "") # Fix Data New Line And No Need To Go Through Whole String !
+        
+                if data.lower() == "help":
+                        continue
 
 
 def listener():
     while True:
         client, address = sock.accept()
-        threading.Thread(target=server_start, args=(client,)).start()
+        threading.Thread(target=handle_connection, args=(client,address)).start()
         print("\033[37mTCP Connection From\033[32m ", address)
 threading.Thread(target=listener).start()
