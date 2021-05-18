@@ -1,0 +1,17 @@
+   {YELLOW}╔═════════════╦═════════════════╦════════════════════════════════════════╗
+   ║ {RED}Command{YELLOW}     ║ {RED}Description{YELLOW}     ║ {RED}Command Usage{YELLOW}                          ║
+   ╠═════════════╬═════════════════╬════════════════════════════════════════╣
+   ║ {RED}help | ?{YELLOW}    ║ {RED}List of Cmds{YELLOW}    ║ {RED}help | ?{YELLOW}                               ║
+   ║ {RED}Clear{YELLOW}       ║ {RED}Clear Screen{YELLOW}    ║ {RED}clear | cls{YELLOW}                            ║
+   ║ {RED}Methods{YELLOW}     ║ {RED}List of Methods{YELLOW} ║ {RED}Methods{YELLOW}                                ║
+   ║ {RED}Geo IP{YELLOW}      ║ {RED}Geo Locate A IP{YELLOW} ║ {RED}geo <ip>{YELLOW}                               ║
+   ║ {RED}Port Scan{YELLOW}   ║ {RED}Scan for Ports{YELLOW}  ║ {RED}scan <ip>{YELLOW}                              ║
+   ║ {RED}Stresser{YELLOW}    ║ {RED}Attack an IP{YELLOW}    ║ {RED}stress <ip> <port> <time> <method>{YELLOW}     ║
+   ║ {RED}Roots{YELLOW}       ║ {RED}Attack an IP{YELLOW}    ║ {RED}roots <ip> <port> <time> <method>{YELLOW}      ║
+   ║ {RED}Bots{YELLOW}        ║ {RED}Attack an IP{YELLOW}    ║ {RED}bots <ip> <port> <time> <method>{YELLOW}       ║
+   ║ {RED}attack_all{YELLOW}  ║ {RED}Attack an IP{YELLOW}    ║ {RED}attack_all <ip> <port> <time> <method>{YELLOW} ║
+   ║ {RED}My Info{YELLOW}     ║ {RED}Account Info{YELLOW}    ║ {RED}myinfo{YELLOW}                                 ║
+   ║ {RED}Change PW{YELLOW}   ║ {RED}Change Password{YELLOW} ║ {RED}passwd <new_pw> <confirm_pw>{YELLOW}           ║
+   ║ {RED}Support{YELLOW}     ║ {RED}Submit a Ticket{YELLOW} ║ {RED}support <message>{YELLOW}                      ║
+   ║ {RED}Admin{YELLOW}       ║ {RED}Admin Cmds{YELLOW}      ║ {RED}admin{YELLOW}                                  ║
+   ╚═════════════╩═════════════════╩════════════════════════════════════════╝{RESET}
