@@ -10,13 +10,20 @@
 
 ## Modules
 import socket, sys, os, requests, time, threading, requests, random, select
+from dhooks import Webhook #<-- install this module on yo machine
 
 ## Files
 from assets.Config.main import *
+from assets.Logger.discord import *
 from assets.banner_system.modify import *
 from assets.Config.current import *
 
-host = "127.0.0.1" #requests.get("https://api.ipify.org").text | api = requests.get("https://api.hackertarget.com/geoip/?q=" + geoip) | api = requests.get("https://api.hackertarget.com/nmap/?q=" + nmap)
+screen_l = Webhook(str(webhooks["screen_logs"])) # works fine for now
+action_l = Webhook(str(webhooks["action_logs"]))
+login_l = Webhook(str(webhooks["login_logs"]))
+attack_l = Webhook(str(webhooks["attack_logs"]))
+
+host = "" # this can be empty, it will adapt automatically.
 port = 5555 #random.randint(0, 65500)
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -25,6 +32,7 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"Quantum Started | Port: {port}")
+screen_l.send("Quantum Started | Port: ") # sends msg to the discord
 
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
