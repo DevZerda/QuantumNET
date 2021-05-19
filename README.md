@@ -1,2 +1,3 @@
-# pyNET
- Python NET Taking over the Python NETs
+# Quantum NET
+
+A Botnet To Destroy All Python Botnets
