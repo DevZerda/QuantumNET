@@ -1,3 +1,11 @@
+#@title: Quantum NET
+#@since: 5/18/21
+#@creator: Quantum Security Team (vl0b, Exo, clever)
+#
+#
+
+
+
 ## Modules
 import socket, sys, os, requests, time, threading, requests, random, select
 
@@ -14,7 +22,7 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Try To Reuse Port B
 sock.bind((host, port))
 sock.listen()
 
-print(f"pyNET Started | Port: {port}")
+print(f"Quantum Started | Port: {port}")
 
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
