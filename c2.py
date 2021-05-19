@@ -32,7 +32,7 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"Quantum Started | Port: {port}")
-screen_l.send("Quantum Started | Port: ") # sends msg to the discord
+screen_l.send(f"Quantum Started\nPort: {port}\nHost: {host}") # sends msg to the discord
 
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
