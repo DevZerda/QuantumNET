@@ -44,3 +44,14 @@ class CRUD:
         w_db.write(new_db)
         w_db.close()
         return f"[x] User: {user} successfully updated!\r\n"
+
+    def updateUser(user, newlvl, newmtime, newadmin):
+        db = open("./assets/db/users.db", "r").read()
+        users = db.split("\n")
+
+        new_db = ""
+
+        for usr in users:
+            if len(usr) > 5:
+                if usr.startswith("('" + usr):
+                    print("") ## stopped here
