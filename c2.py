@@ -10,7 +10,6 @@
 
 ## Modules
 import socket, sys, os, requests, time, threading, requests, random, select, datetime
-from dhooks import Webhook #<-- install this module on yo machine
 
 ## Files
 from assets.Config.main import *
@@ -18,13 +17,8 @@ from assets.Logger.discord import *
 from assets.banner_system.modify import *
 from assets.Config.current import *
 
-screen_l = Webhook(str(webhooks["screen_logs"])) # works fine for now
-action_l = Webhook(str(webhooks["action_logs"]))
-login_l = Webhook(str(webhooks["login_logs"]))
-attack_l = Webhook(str(webhooks["attack_logs"]))
-
 host = "127.0.0.1" # nvm lol
-port = 5555 #random.randint(0, 65500)
+port = random.randint(0, 65500)
 timenow = datetime.datetime.now() # current time
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -33,7 +27,7 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"Quantum Started | Port: {port}")
-screen_l.send(f"Quantum Started\nPort: {port}\nHost: {host}\nTime: {timenow}") # sends msg to the discord
+DiscordFunc.netStartUp(host, port, )
 
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
@@ -42,13 +36,22 @@ def handle_connection(client, addr):
         client.recv(1024)
         client.send("Password :".encode())
         password = client.recv(1024).decode()
+        client.send(MainColors["hostname"].encode("utf-8"))
         while(True):
-                client.send(MainColors["hostname"].encode("utf-8"))
-                client.send(str(MainColors["hostname"]).encode("utf-8"))
-                data = client.recv(512).decode("utf-8").strip().replace("\r\n", "")
-                print(data)
-                if data.lower() == "help":
-                        continue
+                data = client.recv(1024).decode("utf-8").strip().replace("\r\n", "")
+                print(r"{}".format(data))
+                if data == r"\r\n":
+                        print("empty")
+                        client.send(MainColors["hostname"] + "\r\n".encode("utf-8"))
+                elif data == r"b'\r\n'":
+                        print("empty")
+                        client.send(MainColors["hostname"] + "\r\n".encode("utf-8"))
+                elif r'\r\n' in data:
+                        print("newline")
+                        client.send(MainColors["hostname"].encode("utf-8"))
+                elif data.lower() == "help":
+                        client.send(("working\r\n" + MainColors["hostname"]).encode("utf-8"))
+                        
 
 
 def listener():
