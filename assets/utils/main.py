@@ -22,4 +22,7 @@ class utils:
     def removeRow():
         return ""
 
+    def CurrentTime():
+        return ""
+
     
