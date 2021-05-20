@@ -1,17 +1,24 @@
+from assets.Config.main import MainColors
 import sys, os, time
 
 
 class BannerModify:
-    global appOwner
-    global appInstagram
-    global appDiscord
-    global appDiscordServer
-    global appName
-    global appVersion
-    global Username
-    global IPAddr
+    def GetBannerFromFile(filee):
+        BannerFile = open(filee, "r").read()
+        return BannerFile
+        
+
+class BannerFunc():
+    appOwner = None
+    appInstagram = None
+    appDiscord = None
+    appDiscordServer = None
+    appName = None
+    appVersion = None
+    Username = None
+    IPAddr = None
 
     def ColorBanner(bnnr):
-        print("")
+        bnnr = bnnr.replace("{RED}", MainColors['RED'])
 
     
