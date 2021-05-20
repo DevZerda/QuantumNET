@@ -10,13 +10,13 @@ class Discord():
 	# 	"attack_logs": "https://discord.com/api/webhooks/844148531052412968/_uiWklaFSMI79_3NcKt45ZKumn6hvktS-mUSDnwxp_H630EIK8brKi74WWdcET_6HmH1"
 	# } # Exo
 
-	def send_notice(msg, type):
-		types = ["screen", "login", "attack", "log"]
-		if type in types:
-			webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/844894832405381161/jCw_h5_NWkAPci0SyqMoW5Xh_NT9TxRR65BZqEgOOX9PyGyz0QOjGumoc1aeAcbWZQMO', content=msg)
-			webhook.execute()
-		else: 
-			print("Unable to send request!")
+	def send_notice(msg):
+		# types = ["screen", "login", "attack", "log"]
+		# if type in types:
+		webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/844894832405381161/jCw_h5_NWkAPci0SyqMoW5Xh_NT9TxRR65BZqEgOOX9PyGyz0QOjGumoc1aeAcbWZQMO', content=msg)
+		webhook.execute()
+		# else: 
+			# print("Unable to send request!")
 
 
 class DiscordFunc():
