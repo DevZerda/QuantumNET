@@ -23,7 +23,7 @@ action_l = Webhook(str(webhooks["action_logs"]))
 login_l = Webhook(str(webhooks["login_logs"]))
 attack_l = Webhook(str(webhooks["attack_logs"]))
 
-host = "" # this can be empty, it will adapt automatically.
+host = "127.0.0.1" # nvm lol
 port = 5555 #random.randint(0, 65500)
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
