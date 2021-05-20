@@ -17,6 +17,7 @@ from assets.Logger.discord import *
 from assets.banner_system.modify import *
 from assets.Config.current import *
 
+buffer_length = 1024
 host = "127.0.0.1" # nvm lol
 port = random.randint(0, 65500)
 timenow = datetime.datetime.now() # current time
@@ -32,13 +33,13 @@ DiscordFunc.netStartUp(host, port, )
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
         client.send("Username :".encode())
-        username = client.recv(1024).decode()
-        client.recv(1024)
+        username = client.recv(buffer_length).decode()
+        client.recv(buffer_length)
         client.send("Password :".encode())
-        password = client.recv(1024).decode()
+        password = client.recv(buffer_length).decode()
         client.send(MainColors["hostname"].encode("utf-8"))
         while(True):
-                data = client.recv(1024).decode("utf-8").strip().replace("\r\n", "")
+                data = client.recv(buffer_length).decode("utf-8").strip().replace("\r\n", "")
                 print(r"{}".format(data))
                 if data == r"\r\n":
                         print("empty")
