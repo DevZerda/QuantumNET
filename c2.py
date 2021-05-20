@@ -28,15 +28,16 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"Quantum Started | Port: {port}")
-DiscordFunc.netStartUp(host, port, )
+DiscordFunc.netStartUp(host, port, "")
 
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
         client.send("Username :".encode())
         username = client.recv(buffer_length).decode()
-        client.recv(buffer_length)
+        time.sleep(4)
         client.send("Password :".encode())
         password = client.recv(buffer_length).decode()
+        time.sleep(4)
         client.send(MainColors["hostname"].encode("utf-8"))
         while(True):
                 data = client.recv(buffer_length).decode("utf-8").strip().replace("\r\n", "")
