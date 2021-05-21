@@ -50,8 +50,8 @@ def handle_connection(client, addr):
 
 def main(client, addr):
         client.send(MainColors["hostname"].encode("utf-8"))
-        data = client.recv(buffer_length).decode("utf-8").strip().replace("\r\n", "")
         while(True):
+                data = client.recv(buffer_length).decode("utf-8").strip().replace("\r\n", "")
                 print(r"{}".format(data))
                 if data == r"\r\n":
                         print("empty")
