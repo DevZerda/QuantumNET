@@ -1,5 +1,13 @@
 
 class Strings():
+
+	def hostname(name):
+		addName = "Net"
+		if name:
+			addName = "User: " + name
+		
+		return "[Quantum@" + addName + "]#~ "
+
 	MainColors = {
 		"Red": "\x1b[31m",
 		"Yellow": "\x1b[33m",
