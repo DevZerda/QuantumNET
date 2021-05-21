@@ -28,7 +28,7 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"Quantum Started | Port: {port}")
-DiscordFunc.netStartUp(host, port)
+DiscordFunc.netStartUp(host, port, time)
 
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
