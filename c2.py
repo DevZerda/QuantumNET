@@ -57,27 +57,26 @@ def handle_connection(client, addr):
                         print(r"{}".format(data))
 
                         ## do not remove lines 62-67 (for testing purposes)
-                        if data == r"\r\n":
-                                client.send(Strings.hostname("").encode("utf-8"))
-                        elif data == r"b'\r\n'":
-                                client.send(Strings.hostname("").encode("utf-8"))
-                        elif r'\r\n' in data:
-                                client.send(Strings.hostname("").encode("utf-8"))
-                        elif data.lower() == "help":
+                        # if data == r"\r\n":
+                        #         client.send(Strings.hostname("").encode("utf-8"))
+                        # elif data == r"b'\r\n'":
+                        #         client.send(Strings.hostname("").encode("utf-8"))
+                        # elif r'\r\n' in data:
+                        #         client.send(Strings.hostname("").encode("utf-8"))
+                        if data.lower() == "help":
                                 help_command(client)
                         elif data.lower() == "geo":
                                 geo_command(client)
 
-                        if client.timeout:
-                                break
+                        # print(client.error)
 
-                except client.error as e:
-                        if e.errno == errno.ECONNRESET:
-                                # Handle disconnection -- close & reopen socket etc.
-                                break
-                        else:
-                        # Other error, re-raise
-                                raise
+                        # if client.timeout:
+                        #         break
+
+                        # if client.error:
+                        #         continue
+
+                except:
                         break
                 
 
@@ -89,6 +88,8 @@ def listener():
 threading.Thread(target=listener).start()
 
 def Input(socket):
+        socket.recv(1024)
         data = socket.recv(1024).decode("utf-8").strip().replace("\r\n", "")
-        if data == '': print("Empty")
+        print(data)
+        if data == r'b\'\'': return
         return data
