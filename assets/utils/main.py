@@ -2,7 +2,7 @@ import os, sys, time
 
 class utils:
     def set_Title(msg):
-        return ""
+        return "\033]0;" + msg + "\007"
 
     def set_Cursor(r, c):
         return ""
