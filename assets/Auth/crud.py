@@ -25,7 +25,7 @@ class CRUD:
         db = open("./assets/db/users.db", "a")
         db.write(f"('{user}','{ip}','{password}','{level}','{maxtime}','{admin}')\n")
         db.close()
-        return "[+] User: {user} successfully added!\r\n"
+        return f"[+] User: {user} successfully added!\r\n"
     
     def RemoveUser(user):
         db = open("./assets/db/users.db", "r").read()
