@@ -36,6 +36,7 @@ DiscordFunc.netStartUp(host, port, timenow)
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
 
+        client.send(str(MainColors["login_title"]).encode("utf-8"))
         client.send("Username :".encode())
         username = client.recv(buffer_length).decode()
 
@@ -49,6 +50,7 @@ def handle_connection(client, addr):
         main(client, addr)
 
 def main(client, addr):
+        client.send(str(MainColors["main_title"]).encode("utf-8"))
         client.send(MainColors["hostname"].encode("utf-8"))
         while(True):
                 data = client.recv(buffer_length).decode("utf-8").strip().replace("\r\n", "")
@@ -80,4 +82,5 @@ def listener():
         client, address = sock.accept()
         threading.Thread(target=handle_connection, args=(client,address)).start()
         print("TCP Connection From ", address)
+        Discord.send_notice(f"Connection from {address}\nTime: {timenow}")
 threading.Thread(target=listener).start()
