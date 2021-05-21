@@ -9,7 +9,6 @@
 
 
 ## Modules
-from assets.utils.main import utils
 import socket, sys, os, requests, time, threading, requests, random, select, datetime
 
 ## Files
@@ -19,6 +18,8 @@ from assets.Config.current import *
 from assets.Logger.discord import *
 
 from assets.banner_system.modify import *
+
+from assets.utils.main import utils
 
 ## Commands
 from assets.Commands.help import *
@@ -84,7 +85,7 @@ def listener():
     while True:
         client, address = sock.accept()
         threading.Thread(target=handle_connection, args=(client,address)).start()
-        print("\033[37mTCP Connection From\033[32m ", address)
+        print(Strings.MainColors['Red'] + "TCP Connection From " + address + Strings.MainColors['Reset'])
 threading.Thread(target=listener).start()
 
 def Input(socket):
