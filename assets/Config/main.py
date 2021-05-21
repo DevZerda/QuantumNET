@@ -14,7 +14,7 @@ MainColors = {
 	"Background_Grey": "\x1b[100m",
 	"Background_Reset": "\x1b[49m",
 	"Clear": "\033[2J\033[1;1H",
-	"hostname": "Quantum@Net:~# "
+	"hostname": "Quantum@Net:~# ",
 	"main_title": "\x1b]0;| [Quantum] |\x07",
 	"login_title": "\x1b]0;Please Login\x07"
 }
