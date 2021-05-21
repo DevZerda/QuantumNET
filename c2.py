@@ -43,21 +43,21 @@ def handle_connection(client, addr):
 
         print(username + " | " + password)
 
-        client.send(MainColors["hostname"].encode("utf-8"))
+        client.send(Strings.MainColors["hostname"].encode("utf-8"))
         while(True):
                 data = client.recv(buffer_length).decode("utf-8").strip().replace("\r\n", "")
                 print(r"{}".format(data))
                 if data == r"\r\n":
                         print("empty")
-                        client.send(MainColors["hostname"] + "\r\n".encode("utf-8"))
+                        client.send(Strings.MainColors["hostname"] + "\r\n".encode("utf-8"))
                 elif data == r"b'\r\n'":
                         print("empty")
-                        client.send(MainColors["hostname"] + "\r\n".encode("utf-8"))
+                        client.send(Strings.MainColors["hostname"] + "\r\n".encode("utf-8"))
                 elif r'\r\n' in data:
                         print("newline")
-                        client.send(MainColors["hostname"].encode("utf-8"))
+                        client.send(Strings.MainColors["hostname"].encode("utf-8"))
                 elif data.lower() == "help":
-                        client.send(("working\r\n" + MainColors["hostname"]).encode("utf-8"))
+                        client.send(("working\r\n" + Strings.MainColors["hostname"]).encode("utf-8"))
 
                 if client.error:
                         client.close()
