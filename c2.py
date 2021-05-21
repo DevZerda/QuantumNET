@@ -28,7 +28,7 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"Quantum Started | Port: {port}")
-DiscordFunc.netStartUp(host, port, "")
+DiscordFunc.netStartUp(host, port, timenow, "")
 
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
@@ -71,5 +71,5 @@ def listener():
     while True:
         client, address = sock.accept()
         threading.Thread(target=handle_connection, args=(client,address)).start()
-        print("\033[37mTCP Connection From\033[32m ", address)
+        print("TCP Connection From ", address)
 threading.Thread(target=listener).start()
