@@ -2,7 +2,7 @@ import os, sys, time
 
 from discord_webhook import DiscordWebhook
 
-class Discord():
+class Discord:
 	# webhooks = {
 	# 	"screen": "https://discord.com/api/webhooks/844855350801072159/xPsomucP4neo4dOdGLBaIbRmz8ldvCr9617c2FcWgDjrwrvuemlc2shLtl5TJCjq6zi7",
 	# 	"login": "https://discord.com/api/webhooks/844148531052412968/_uiWklaFSMI79_3NcKt45ZKumn6hvktS-mUSDnwxp_H630EIK8brKi74WWdcET_6HmH1",
