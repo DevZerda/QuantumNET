@@ -19,10 +19,15 @@ class MainLogger:
         logsDB.write(logThis)
         logsDB.close()
 
-    def LogAttack():
-        return ""
+    def LogAttack(logThis):
+        attkDB = open("../db/users.db", "a")
+        attkDB.write(logThis)
+        attkDB.close()
 
-    def LogLogin():
-        return ""
+    def LogLogin(logThis):
+        LoginDB = open("../db/logins.db", "a")
+        LoginDB.write(logThis)
+        LoginDB.close()
+        
 
     
