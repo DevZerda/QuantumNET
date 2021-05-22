@@ -24,10 +24,15 @@ from assets.Commands.help import *
 from assets.Commands.methods import *
 from assets.Commands.geo import *
 
-if utils.CheckForPython3Unix() == True:
-        print("Thanks for using python3!")
-else:
-        print("Must use Python3!\r\nUsage: python3 " + sys.argv[0])
+# if utils.GetOS() == True:
+#         if utils.CheckForPython3Unix() == True:
+#                 print("Thanks for using python3!")
+#         else:
+#                 print("Must use Python3!\r\nUsage: python3 " + sys.argv[0])
+#                 exit()
+# else:
+#         print("This is currently for LINUX!")
+#         exit()
 
 
 buffer_length = 1024
