@@ -21,9 +21,9 @@ class CRUD:
         else:
             return "[x] Error, No user found!"
 
-    def CreateUser(user, ip, password, level, maxtime, admin):
+    def CreateUser(user, password, level, maxtime, admin):
         db = open("./assets/db/users.db", "a")
-        db.write(f"('{user}','{ip}','{password}','{level}','{maxtime}','{admin}')\n")
+        db.write(f"('{user}','none','{password}','{level}','{maxtime}','{admin}')\n")
         db.close()
         return f"[+] User: {user} successfully added!\r\n"
     
