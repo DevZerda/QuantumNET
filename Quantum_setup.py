@@ -7,6 +7,8 @@ def GetOS():
         UnixPlatform = False
     elif "Linux" in platform.platform():
         UnixPlatform = True
+    elif "Darwin" in platform.platform():
+        UnixPlatform = True
     else:
         print("[x] Error, This net does not support this OS")
         exit()
