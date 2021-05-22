@@ -3,7 +3,7 @@ import os, sys, time, platform
 
 class utils:
     def set_Title(socket, msg):
-        return "\033]0;" + msg + "\007"
+        socket.send(f"\033]0;{msg}\007".encode())
 
     def set_Cursor(socket, r, c):
         return ""
