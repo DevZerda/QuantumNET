@@ -13,7 +13,18 @@ class BannerModify:
             slash = "/"
         else:
             slash = "\\"
-        BannerFile = open(slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt", "r").read()
+        
+        print(os.getcwd())
+        print(os.getcwd() + slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt")
+        print("Is File: " + str(os.path.isfile(os.getcwd() + slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt")))
+        ## isnt reading file data or character symbols from file [THIS NEEDS TO BE FIXED]
+        try:
+            BannerFile = open(f" C:\Users\Jeff\Desktop\Projects\PY\pyNET\assets\banner_system\banners\help.txt","r")
+            BannerFile = BannerFile.read()
+        except:
+            print("Error")
+            BannerFile = "Failed"
+
         return BannerFunc.ColorBanner(BannerFile)
         
 
