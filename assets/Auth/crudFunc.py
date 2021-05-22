@@ -2,6 +2,15 @@ import os, sys, time
 from .crud import *
 
 class CrudFunctions():
+    def ChangePW(user, newpw):
+        info = CRUD.GetUser(user).split(",")
+        CRUD.RemoveUser(user)
+        CRUD.CreateUser(info[0], newpw, info[3], info[4], info[5])
+
+
+    def IPChange(user, newip):
+        return ""
+
     def isRegistered(username):
         info = CRUD.GetUser(username)
     
