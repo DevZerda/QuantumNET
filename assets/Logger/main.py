@@ -14,13 +14,19 @@ class MainLogger:
         logResp += "Cmd: " + Current.CurrentCmd['Cmd'] + " | Full CMD: " + Current.CurrentCmd['Fullcmd'] + "\n"
         print(logResp)
 
+        LogTypes.LogCommand(logResp)
+        if logType == "attack":
+            LogTypes.LogAttack(logResp)
+
+
+class LogTypes:
     def LogCommand(logThis):
-        logsDB = open("../db/users.db", "a")
+        logsDB = open("../db/logs.db", "a")
         logsDB.write(logThis)
         logsDB.close()
 
     def LogAttack(logThis):
-        attkDB = open("../db/users.db", "a")
+        attkDB = open("../db/attacks.db", "a")
         attkDB.write(logThis)
         attkDB.close()
 
@@ -28,6 +34,6 @@ class MainLogger:
         LoginDB = open("../db/logins.db", "a")
         LoginDB.write(logThis)
         LoginDB.close()
-        
+
 
     
