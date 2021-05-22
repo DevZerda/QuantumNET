@@ -2,7 +2,7 @@
 #
 #@title: Quantum NET
 #@since: 5/18/21
-#@creator: Quantum Security Team (vl0b, Exo, clever)
+#@creator: Quantum Security Team (vl0b, Exo, clever, Max)
 #
 #
 
@@ -43,19 +43,21 @@ DiscordFunc.netStartUp(host, port, timenow)
 def handle_connection(client, addr):
         Current.CurrentInfo["IP"] = addr[0]
 
-        client.send("Username: ".encode())
-        username = client.recv(buffer_length).decode()
+        recData = client.recv(buffer_length).decode().split(":")
+        if len(recData) <= 1:
+                client.send("Failed to connect!".encode())
+                print(Strings.MainColors["Red"] + "Connection closed, by " + addr[0] + ":" + str(addr[1]) + ""+ Strings.MainColors["Reset"])
+                client.close()
+                return
+        username = recData[0]
+        password = recData[1]
+        
+        client.send("1".encode())
 
-        client.recv(1024).decode()
-
-        client.send("Password: ".encode())
-        password = client.recv(buffer_length).decode()
-
-        client.send(Strings.hostname("").encode("utf-8"))
         while(True):
                 try:
-                        data = Input(client)
-                        print(r"{}".format(data))
+                        client.send(Strings.hostname("").encode())
+                        data = client.recv(buffer_length).decode()
 
                         ## do not remove lines 62-67 (for testing purposes)
                         # if data == r"\r\n":
@@ -66,6 +68,7 @@ def handle_connection(client, addr):
                         #         client.send(Strings.hostname("").encode("utf-8"))
                         if data.lower() == "help":
                                 help_command(client)
+                                continue
                         elif data.lower() == "geo":
                                 geo_command(client)
 
@@ -74,8 +77,8 @@ def handle_connection(client, addr):
                         # if client.timeout:
                         #         break
 
-                        # if client.error:
-                        #         continue
+                        if client.error:
+                                continue
 
                 except:
                         break
@@ -85,7 +88,7 @@ def listener():
     while True:
         client, address = sock.accept()
         threading.Thread(target=handle_connection, args=(client,address)).start()
-        print(Strings.MainColors['Red'] + "TCP Connection From " + address + Strings.MainColors['Reset'])
+        print(Strings.MainColors['Red'] + "TCP Connection From " + address[0] + ":" + str(address[1]) + Strings.MainColors['Reset'])
 threading.Thread(target=listener).start()
 
 def Input(socket):
