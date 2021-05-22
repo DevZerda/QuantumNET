@@ -44,18 +44,8 @@ def handle_connection(client, addr):
         utils.set_Title(client, "Login")
         Current.CurrentInfo["IP"] = addr[0]
 
-        # recData = client.recv(buffer_length).decode().split(":")
-        # print(len(recData))
-        # if len(recData) <= 1:
-        #         client.send("Failed to connect!".encode())
-        #         print(Strings.MainColors["Red"] + "Connection closed, by " + addr[0] + ":" + str(addr[1]) + ""+ Strings.MainColors["Reset"])
-        #         client.close()
-        #         return
-        # username = recData[0]
-        # password = recData[1]
-        
-        # client.send("1".encode())
 
+        ## User Input Login Section
         client.send("Username: ".encode())
         username = client.recv(1024).decode()
         client.recv(1024).decode()
@@ -65,8 +55,10 @@ def handle_connection(client, addr):
         client.send(f"{username} | {password}\r\n".encode())
         client.send("Welcome to Quantum Net\r\n".encode())
 
+        utils.set_Title(client, f"Quantum NET | User: {username}")
+
+        client.send(Strings.hostname(username).encode())
         while(True):
-                client.send(Strings.hostname(username).encode())
                 data = str(client.recv(buffer_length).decode()).strip().replace("\r\n", "")
 
                 ## Command Handling
@@ -78,6 +70,9 @@ def handle_connection(client, addr):
                         help_command(client)
                 elif data.lower().startswith("geo"):
                         geo_command(client, username)
+
+                
+                client.send(Strings.hostname(username).encode())
         
 
 def listener():
@@ -86,10 +81,3 @@ def listener():
         threading.Thread(target=handle_connection, args=(client,address)).start()
         print(Strings.MainColors['Red'] + "TCP Connection From " + address[0] + ":" + str(address[1]) + Strings.MainColors['Reset'])
 threading.Thread(target=listener).start()
-
-def Input(socket):
-        socket.recv(1024)
-        data = socket.recv(1024).decode("utf-8").strip().replace("\r\n", "")
-        print(data)
-        if data == r'b\'\'': return
-        return data
