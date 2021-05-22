@@ -60,6 +60,12 @@ def handle_connection(client, addr):
         
         # client.send("1".encode())
 
+        username = client.recv(1024).decode().strip().replace("\r\n", "")
+        client.recv(1024)
+        password = client.recv(1024).decode().strip().replace("\r\n", "")
+
+        client.send(f"{username} | {password}")
+
         while(True):
                 client.send(Strings.hostname("").encode())
                 data = client.recv(buffer_length).decode()
@@ -68,9 +74,6 @@ def handle_connection(client, addr):
 
                 Current.CurrentCmd["args"] = data.split(" ")
                 Current.CurrentCmd["fullcmd"] = data
-
-                print(data)
-                print("Arguments: " + str(Current.CurrentCmd["args"]))
 
                 # do not remove lines 62-67 (for testing purposes)
                 if data.lower() == "help":
