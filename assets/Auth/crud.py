@@ -36,6 +36,7 @@ class CRUD:
         for u in users:
             if len(u) > 4:
                 if user in u:
+                    ## Edit user here
                     print("User found and removed!")
                 else:
                     new_db += u + "\n"
