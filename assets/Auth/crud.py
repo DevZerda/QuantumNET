@@ -55,4 +55,13 @@ class CRUD:
         for usr in users:
             if len(usr) > 5:
                 if usr.startswith("('" + usr):
-                    print("") ## stopped here
+                    fix = usr.replace("('", "")
+                    fix2 = fix.replace("')", "")
+                    userinfo = fix2.split("','")
+                    new_db += "('" + userinfo[0] + "','" + userinfo[1] + "','" + userinfo[2] + "','" + newlvl + "','" + newmtime + "','" + newadmin + "')\n"
+                else:
+                    new_db += usr
+
+        w_db = open("./assets/db/users.db", "w")
+        w_db.write(new_db)
+        return f"User: {user} successfully updated!\r\n"
