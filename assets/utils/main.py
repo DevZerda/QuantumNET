@@ -1,4 +1,5 @@
-import os, sys, time
+from Quantum_setup import GetOS
+import os, sys, time, platform
 
 class utils:
     def set_Title(socket, msg):
@@ -24,3 +25,20 @@ class utils:
 
     def CurrentTime():
         return ""
+
+    def CheckForPython3Unix():
+        if GetOS() == True:
+            if os.path.isfile("/usr/bin/python3"):
+                return True
+            else:
+                return False
+
+    def GetOS():
+        print(platform.platform())
+        if "Windows" in platform.platform():
+            return False
+        elif "Linux" in platform.platform():
+            return True
+        else:
+            print("[x] Error, This net does not support this OS")
+            exit()
