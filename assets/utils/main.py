@@ -1,5 +1,5 @@
 from Quantum_setup import GetOS
-import os, sys, time, platform
+import os, sys, time, platform, datetime
 
 class utils:
     def set_Title(socket, msg):
@@ -24,7 +24,7 @@ class utils:
         return ""
 
     def CurrentTime():
-        return ""
+        return datetime.datetime.now()
 
     def CheckForPython3Unix():
         if GetOS() == True:
