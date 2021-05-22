@@ -34,7 +34,6 @@ class utils:
                 return False
 
     def GetOS():
-        print(platform.platform())
         if "Windows" in platform.platform():
             return False
         elif "Linux" in platform.platform():
