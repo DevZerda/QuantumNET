@@ -4,9 +4,10 @@ class Strings():
 	def hostname(name):
 		addName = "Net"
 		if name:
-			addName = "User: " + name
+			addName = name
 		
-		return "\r[Quantum@" + addName + "]#~ "
+		host = "\r[Quantum@" + addName + "]══► $ "
+		return host
 
 	MainColors = {
 		"Red": "\e[31m",
