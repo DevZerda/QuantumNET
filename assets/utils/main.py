@@ -42,3 +42,10 @@ class utils:
         else:
             print("[x] Error, This net does not support this OS")
             exit()
+
+    def FlashingCursor(socket):
+        while(True):
+            socket.send("\033[?25l".encode())
+            time.sleep(1)
+            socket.send("\033[?25h\033[?0c".encode())
+            time.sleep(1)
