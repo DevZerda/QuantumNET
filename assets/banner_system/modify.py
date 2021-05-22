@@ -1,11 +1,20 @@
-from assets.Config.main import Strings
+## Modules
 import sys, os, time
+
+## Files
+from ..utils.main import *
+from assets.Config.main import Strings
 
 
 class BannerModify:
     def GetBannerFromFile(filee):
-        BannerFile = open(filee, "r").read()
-        return BannerFile
+        slash = None
+        if utils.GetOS() == True:
+            slash = "/"
+        else:
+            slash = "\\"
+        BannerFile = open(slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt", "r").read()
+        return BannerFunc.ColorBanner(BannerFile)
         
 
 class BannerFunc():
