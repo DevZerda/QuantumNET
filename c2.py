@@ -55,27 +55,28 @@ def handle_connection(client, addr):
         
         # client.send("1".encode())
 
+        client.send("Username: ".encode())
         username = client.recv(1024).decode()
         client.recv(1024).decode()
+        client.send("Password: ".encode())
         password = client.recv(1024).decode()
 
-        client.send("{} | {}".format(username, password).encode())
+        client.send(f"{username} | {password}\r\n".encode())
+        client.send("Welcome to Quantum Net\r\n".encode())
 
         while(True):
                 client.send(Strings.hostname(username).encode())
-                data = client.recv(buffer_length).decode()
+                data = str(client.recv(buffer_length).decode()).strip().replace("\r\n", "")
 
                 ## Command Handling
-
-                Current.CurrentCmd["args"] = data.split(" ")
-                Current.CurrentCmd["fullcmd"] = data
-
-                # do not remove lines 62-67 (for testing purposes)
+                if data != "\r\n":
+                        Current.CurrentCmd["args"] = data.split(" ")
+                        Current.CurrentCmd["fullcmd"] = data
+                
                 if data.lower() == "help":
                         help_command(client)
-                        continue
-                elif data.lower() == "geo":
-                        geo_command(client)
+                elif data.lower().startswith("geo"):
+                        geo_command(client, username)
         
 
 def listener():
