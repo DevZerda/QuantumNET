@@ -19,7 +19,7 @@ class BannerModify:
         print("Is File: " + str(os.path.isfile(os.getcwd() + slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt")))
         ## isnt reading file data or character symbols from file [THIS NEEDS TO BE FIXED]
         try:
-            BannerFile = open(f" C:\Users\Jeff\Desktop\Projects\PY\pyNET\assets\banner_system\banners\help.txt","r")
+            BannerFile = open(os.getcwd() + slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt","r")
             BannerFile = BannerFile.read()
         except:
             print("Error")
