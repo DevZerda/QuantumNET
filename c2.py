@@ -6,19 +6,14 @@
 #
 #
 
-
-
 ## Modules
 import socket, sys, os, requests, time, threading, requests, random, datetime
 
 ## Files
 from assets.Config.main import *
 from assets.Config.current import *
-
 from assets.Logger.discord import *
-
 from assets.banner_system.modify import *
-
 from assets.utils.main import utils
 
 ## Commands
@@ -33,8 +28,8 @@ else:
 
 
 buffer_length = 1024
-host = "127.0.0.1" #requests.get("https://api.ipify.org").text
-port = random.randint(0, 65500)
+host = "0.0.0.0" #requests.get("https://api.ipify.org").text
+port = random.randint(0, 65535)
 timenow = datetime.datetime.now() # current time
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -60,14 +55,14 @@ def handle_connection(client, addr):
         
         # client.send("1".encode())
 
-        username = client.recv(1024).decode().strip().replace("\r\n", "")
-        client.recv(1024)
-        password = client.recv(1024).decode().strip().replace("\r\n", "")
+        username = client.recv(1024).decode()
+        client.recv(1024).decode()
+        password = client.recv(1024).decode()
 
-        client.send(f"{username} | {password}")
+        client.send("{} | {}".format(username, password).encode())
 
         while(True):
-                client.send(Strings.hostname("").encode())
+                client.send(Strings.hostname(username).encode())
                 data = client.recv(buffer_length).decode()
 
                 ## Command Handling
