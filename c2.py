@@ -12,6 +12,9 @@ import socket, sys, os, requests, time, threading, requests, random, datetime
 ## Files
 from assets.Config.main import *
 from assets.Config.current import *
+from assets.Auth.main import *
+from assets.Auth.crud import *
+from assets.Auth.crudFunc import *
 from assets.Logger.discord import *
 from assets.banner_system.modify import *
 from assets.utils.main import utils
@@ -42,7 +45,6 @@ DiscordFunc.netStartUp(host, port, timenow)
 
 def handle_connection(client, addr):
         utils.set_Title(client, "Login")
-        Current.CurrentInfo["IP"] = addr[0]
 
 
         ## User Input Login Section
@@ -54,6 +56,13 @@ def handle_connection(client, addr):
 
         client.send(f"{username} | {password}\r\n".encode())
         client.send("Welcome to Quantum Net\r\n".encode())
+
+        if "[+]" in Auth.Login(username, password, addr[0]):
+                client.send(f"Welcome: {username}".encode())
+        else:
+                client.send("[x] Error, Incorrect username or password. Try again....".encode())
+                time.sleep(4)
+                client.close()
 
         utils.set_Title(client, f"Quantum NET | User: {username}")
 
