@@ -17,6 +17,8 @@ class MainLogger:
         LogTypes.LogCommand(logResp)
         if logType == "attack":
             LogTypes.LogAttack(logResp)
+        elif logType == "login":
+            LogTypes.LogLogin(logResp)
 
 
 class LogTypes:
