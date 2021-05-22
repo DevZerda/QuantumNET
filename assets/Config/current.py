@@ -10,13 +10,14 @@ class Current:
     CurrentInfo = {
         "Username": "",
         "IP": "",
-        "Port": "",
         "Password": "",
-        "Level": "",
-        "Maxime": "",
-        "Admin": ""
+        "Level": 0,
+        "Maxime": 0,
+        "Admin": False
     }
 
     CurrentLoginInfo = {
-
+        "Username": "",
+        "Password": "",
+        "IP": ""
     }
