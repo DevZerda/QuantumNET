@@ -15,6 +15,7 @@ from assets.Config.current import *
 from assets.Auth.main import *
 from assets.Auth.crud import *
 from assets.Auth.crudFunc import *
+from assets.Logger.main import *
 from assets.Logger.discord import *
 from assets.banner_system.modify import *
 from assets.utils.main import utils
@@ -36,9 +37,12 @@ from assets.Commands.geo import *
 
 
 buffer_length = 1024
-host = "0.0.0.0" #requests.get("https://api.ipify.org").text
+host = "0.0.0.0"
 port = random.randint(0, 65535)
 timenow = datetime.datetime.now() # current time
+if len(sys.argv) == 2:
+        if sys.argv[1] == "-on":
+                host = requests.get("https://api.ipify.org").text
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Try To Reuse Port Bypass TIME_WAIT Sometimes
@@ -54,10 +58,10 @@ def handle_connection(client, addr):
 
         ## User Input Login Section
         client.send("Username: ".encode())
-        username = client.recv(1024).decode()
-        client.recv(1024).decode()
+        username = client.recv(1024).decode().strip().replace("\r\n", "")
+        # client.recv(1024).decode()
         client.send("Password: ".encode())
-        password = client.recv(1024).decode()
+        password = client.recv(1024).decode().strip().replace("\r\n", "")
 
         client.send(f"{username} | {password}\r\n".encode())
         client.send("Welcome to Quantum Net\r\n".encode())
@@ -71,8 +75,8 @@ def handle_connection(client, addr):
 
         utils.set_Title(client, f"Quantum NET | User: {username}")
 
-        client.send(Strings.hostname(username).encode())
         while(True):
+                client.send(Strings.hostname(username).encode())
                 data = str(client.recv(buffer_length).decode()).strip().replace("\r\n", "")
 
                 ## Command Handling
@@ -83,9 +87,9 @@ def handle_connection(client, addr):
                 if data.lower() == "help":
                         help_command(client)
                 elif data.lower().startswith("geo"):
-                        geo_command(client, username)
+                        geo_command(client, Current.CurrentCmd["args"])
 
-                
+                MainLogger.Log("CMD", True)
                 client.send(Strings.hostname(username).encode())
         
 
