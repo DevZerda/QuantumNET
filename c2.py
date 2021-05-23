@@ -52,7 +52,6 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"Quantum Started | {host} | {port}")
-DiscordFunc.netStartUp(host, port, timenow)
 
 def handle_connection(client, addr):
         utils.set_Title(client, "Login")
