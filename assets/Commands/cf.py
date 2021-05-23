@@ -7,4 +7,4 @@ def CF(socket, argv):
         info = send
         socket.send(f"{send}\r\n".encode("utf-8"))
     else:
-        socket.send("Error Invalid Argument".encode())
+        socket.send("Error Invalid Argument Example: cf [URL]".encode())
