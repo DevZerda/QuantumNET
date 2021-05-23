@@ -21,15 +21,17 @@ class MainLogger:
             LogTypes.LogAttack(logResp)
         elif logType == "login":
             LogTypes.LogLogin(logResp)
+        elif logType == "status":
 
-        if notification == True:
-            Discord.send_notice(logResp)
+        Discord.send_logs(logResp)
+
 
 
 class LogTypes:
 
     def test():
         print(os.path.dirname(__file__), "/../")
+
     def LogCommand(logThis):
         logsDB = open(os.getcwd() + "/assets/db/logs.db", "a")
         logsDB.write(logThis)
