@@ -24,6 +24,7 @@ from assets.utils.main import utils
 from assets.Commands.help import *
 from assets.Commands.methods import *
 from assets.Commands.geo import *
+from assets.Commands.cf import *
 
 # if utils.GetOS() == True:
 #         if utils.CheckForPython3Unix() == True:
