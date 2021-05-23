@@ -38,9 +38,15 @@ def Admin_Command(socket, argv):
                 socket.send(str(usrResp).encode())
         elif admin_tool == "-motd":
             if len(argv) >= 3:
-                motd = utils.arr2str(argv, " ").replace(f"{argv[0]} {argv[1]}", "")
+                motd = arrUtils.arr2str(argv, " ").replace(f"{argv[0]} {argv[1]}", "")
                 motdResp = utils.change_motd(motd)
                 socket.send(str(motdResp).encode())
+            else:
+                socket.send("[x] Error, Invalid Argument\r\nUsage: admin -motd <new_motd>\r\n")
+        elif admin_tool == "-login":
+            if len(argv) == 3:
+                if argv[2] == "on":
+                    
 
     else:
         socket.send("[x] Error, Invalid Argument.\r\n".encode())
