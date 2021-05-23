@@ -3,6 +3,7 @@ import os, sys, time
 
 ## Files
 from ..Auth.crud import *
+from ..utils.main import *
 
 def Admin_Command(socket, argv):
     if len(argv) == 2:
@@ -35,10 +36,13 @@ def Admin_Command(socket, argv):
                 usrResp = CRUD.GetUser(argv[2])
                 usrResp = usrResp.replace(",", "\r\n")
                 socket.send(str(usrResp).encode())
-        elif admin_tool == "-news":
+        elif admin_tool == "-motd":
             if len(argv) >= 3:
-                return ""
+                motd = utils.arr2str(argv, " ").replace(f"{argv[0]} {argv[1]}", "")
+                motdResp = utils.change_motd(motd)
+                socket.send(str(motdResp).encode())
 
     else:
         socket.send("[x] Error, Invalid Argument.\r\n".encode())
             
+
