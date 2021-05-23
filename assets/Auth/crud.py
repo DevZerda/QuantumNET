@@ -65,3 +65,44 @@ class CRUD:
         w_db = open("./assets/db/users.db", "w")
         w_db.write(new_db)
         return f"User: {user} successfully updated!\r\n"
+
+    #
+    #
+    #       Session CRUD
+    #
+    #
+
+    def LogSession(username, ip):
+        currentDB = open("./assets/db/current.db", "a")
+        currentDB.write("('{}','{}')\n".format(username, ip))
+        currentDB.close()
+        
+    def removeSession(usernameOrip):
+        currentDB = open("./assets/db/current.db", "r").read()
+        c_users = currentDB.split("\n")
+
+        new_c_usr = ""
+
+        for usr in c_users:
+            if len(usr) > 4:
+                if usr.startswith(f"('{usernameOrip}") | usr.startswith(f"{usernameOrip}')"):
+                    print("User removed!")
+                else:
+                    new_c_usr = usr + "\n"
+
+        c_db = open("./assets/db/current.db", "w")
+        c_db.write(new_c_usr)
+        c_db.close()
+        
+
+    def GetSessionInfo(usernameOrip):
+        c_users = open("./assets/db/current.db", "r").read()
+        users = c_users.split("\n")
+
+        for usr in users:
+            if len(usr) > 5:
+                if usr.startswith(f"('{usernameOrip}") | usr.startswith(f"{usernameOrip}')"):
+                    fix = usr.replace("('", "")
+                    fix2 = fix.replace("')", "")
+                    return fix2.replace("','", ",")
+
