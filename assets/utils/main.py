@@ -48,3 +48,6 @@ class utils:
             time.sleep(1)
             socket.send("\033[?25h\033[?0c".encode())
             time.sleep(1)
+
+    def MOTD(motd):
+        return ""
