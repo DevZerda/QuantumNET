@@ -89,6 +89,8 @@ def handle_connection(client, addr):
                         help_command(client)
                 elif data.lower().startswith("geo"):
                         geo_command(client, Current.CurrentCmd["args"])
+                elif data.lower().startswitch("cf"):
+                        cf_command(client, Current.CurrentCMD["args"])
 
                 MainLogger.Log("CMD", True)
                 client.send(Strings.hostname(username).encode())
