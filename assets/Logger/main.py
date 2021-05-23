@@ -22,6 +22,7 @@ class MainLogger:
         elif logType == "login":
             LogTypes.LogLogin(logResp)
         elif logType == "status":
+            LogTypes.Log
 
         Discord.send_logs(logResp)
 
@@ -29,8 +30,13 @@ class MainLogger:
 
 class LogTypes:
 
-    def test():
-        print(os.path.dirname(__file__), "/../")
+    def sendDiscord(Type, msg):
+        if Type == "attack":
+            Discord.send_attack(msg)
+        elif Type == "status":
+            Discord.send_status(msg)
+        elif Type == "login":
+            Discord.send_login(msg)
 
     def LogCommand(logThis):
         logsDB = open(os.getcwd() + "/assets/db/logs.db", "a")
