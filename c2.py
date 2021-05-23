@@ -25,6 +25,7 @@ from assets.Commands.help import *
 from assets.Commands.methods import *
 from assets.Commands.geo import *
 from assets.Commands.cf import *
+from assets.Commands.admin import *
 
 # if utils.GetOS() == True:
 #         if utils.CheckForPython3Unix() == True:
@@ -60,13 +61,14 @@ def handle_connection(client, addr):
         ## User Input Login Section
         client.send("Username: ".encode())
         username = client.recv(1024).decode().strip().replace("\r\n", "")
-        # client.recv(1024).decode()
+        ## client.recv(1024).decode()
         client.send("Password: ".encode())
         password = client.recv(1024).decode().strip().replace("\r\n", "")
 
         client.send(f"{username} | {password}\r\n".encode())
         client.send("Welcome to Quantum Net\r\n".encode())
 
+        ## Login Check
         if "[+]" in Auth.Login(username, password, addr[0]):
                 client.send(f"Welcome: {username}".encode())
         else:
@@ -89,6 +91,9 @@ def handle_connection(client, addr):
                         help_command(client)
                 elif data.lower().startswith("geo"):
                         geo_command(client, Current.CurrentCmd["args"])
+                elif data.lower().startswith("admin"):
+                        return ""
+                        
 
                 MainLogger.Log("CMD", True)
                 client.send(Strings.hostname(username).encode())
