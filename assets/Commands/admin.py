@@ -35,6 +35,10 @@ def Admin_Command(socket, argv):
                 usrResp = CRUD.GetUser(argv[2])
                 usrResp = usrResp.replace(",", "\r\n")
                 socket.send(str(usrResp).encode())
+        elif admin_tool == "-news":
+            if len(argv) >= 3:
+                return ""
+
     else:
         socket.send("[x] Error, Invalid Argument.\r\n".encode())
             
