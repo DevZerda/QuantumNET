@@ -13,7 +13,7 @@ class Current:
         "Password": "",
         "Level": 0,
         "Maxime": 0,
-        "Admin": False
+        "Admin": 0
     }
 
     CurrentLoginInfo = {
