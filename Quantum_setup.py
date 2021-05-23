@@ -17,11 +17,14 @@ def GetOS():
 def WindowsInstall():
     os.system("pip install requests")
     os.system("pip install discord_webhook")
+WindowsInstall()
 
 def UnixInstall():
     os.system("pip3 install requests")
     os.system("pip3 install discord_webhook")
+UnixInstall()
 
 def CheckForPython3():
     if os.path.isfile("/usr/bin/python3"):
         print("Python3 is installed. In-order to run Quantum NET you'll have to use python3!")
+CheckForPython3()
