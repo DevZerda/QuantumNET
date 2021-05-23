@@ -92,7 +92,7 @@ def handle_connection(client, addr):
                 elif data.lower().startswith("geo"):
                         geo_command(client, Current.CurrentCmd["args"])
                 elif data.lower().startswith("admin"):
-                        return ""
+                        Admin_Command(client, Current.CurrentCmd['args'])
                         
 
                 MainLogger.Log("CMD", True)
