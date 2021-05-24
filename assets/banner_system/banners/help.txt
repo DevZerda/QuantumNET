@@ -15,3 +15,4 @@
    ║ {RED}Support{YELLOW}     ║ {RED}Submit a Ticket{YELLOW} ║ {RED}support <message>{YELLOW}                      ║
    ║ {RED}Admin{YELLOW}       ║ {RED}Admin Cmds{YELLOW}      ║ {RED}admin{YELLOW}                                  ║
    ╚═════════════╩═════════════════╩════════════════════════════════════════╝{RESET}
+   
