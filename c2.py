@@ -79,8 +79,7 @@ def handle_connection(client, addr):
     if "[+]" in Auth.Login(username, password, addr[0]): # This is a weird way of authentication lol 
         client.send(f"Welcome: {username}\r\n".encode())
     else:
-        client.send(
-            "[x] Error, Incorrect username or password. Try again....".encode())
+        client.send("[x] Error, Incorrect username or password. Try again....".encode())
         time.sleep(4)
         client.close()
 
@@ -88,8 +87,7 @@ def handle_connection(client, addr):
 
     while(True):
         client.send(Strings.hostname(username).encode())
-        data = str(client.recv(buffer_length).decode()
-                   ).strip().replace("\r\n", "")
+        data = str(client.recv(buffer_length).decode()).strip().replace("\r\n", "")
 
         # Command Handling
         if data != "\r\n":
@@ -110,10 +108,8 @@ def handle_connection(client, addr):
 def listener():
     while True:
         client, address = sock.accept()
-        threading.Thread(target=handle_connection,
-                         args=(client, address)).start()
-        print(Strings.MainColors['Red'] + "TCP Connection From " +
-              address[0] + ":" + str(address[1]) + Strings.MainColors['Reset'])
+        threading.Thread(target=handle_connection, rgs=(client, address)).start()
+        print(Strings.MainColors['Red'] + "TCP Connection From " + address[0] + ":" + str(address[1]) + Strings.MainColors['Reset'])
 
 
 threading.Thread(target=listener).start()
