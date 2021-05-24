@@ -1,0 +1,7 @@
+   {YELLOW}╔═════════════════╦═════════════════╦═══════════════════╗
+   ║ {RED}Network Name{YELLOW}    ║ {RED}Network Type{YELLOW}    ║ {RED}Status{YELLOW}            ║
+   ╠═════════════════╬═════════════════╬═══════════════════╣
+   ║ {RED}Verdant{YELLOW}         ║ {RED}API{YELLOW}             ║ {GREEN}Online{YELLOW}            ║
+   ║ {RED}OrphicSecurity{YELLOW}  ║ {RED}API{YELLOW}             ║ {GREEN}Online{YELLOW}            ║
+   ╚═════════════════╩═════════════════╩═══════════════════╝
+   
