@@ -48,6 +48,7 @@ class BannerFunc():
         bnnr = bnnr.replace("{GREY}", Strings.MainColors['Grey'])
         bnnr = bnnr.replace("{CYAN}", Strings.MainColors['Cyan'])
         bnnr = bnnr.replace("{WHITE}", Strings.MainColors['White'])
+        bnnr = bnnr.replace("{RESET}", Strings.MainColors['Reset'])
         bnnr = bnnr.replace("{BG_GREY}", Strings.MainColors['Background_Red'])
         bnnr = bnnr.replace("{BG_GREEN}", Strings.MainColors['Background_Green'])
         bnnr = bnnr.replace("{BG_YELLOW}", Strings.MainColors['Background_Yellow'])
