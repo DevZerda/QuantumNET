@@ -13,10 +13,7 @@ class BannerModify:
             slash = "/"
         else:
             slash = "\\"
-        
-        print(os.getcwd())
-        print(os.getcwd() + slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt")
-        print("Is File: " + str(os.path.isfile(os.getcwd() + slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt")))
+            
         ## isnt reading file data or character symbols from file [THIS NEEDS TO BE FIXED]
         try:
             BannerFile = open(os.getcwd() + slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt","r")
