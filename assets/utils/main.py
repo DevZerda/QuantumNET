@@ -23,7 +23,7 @@ class utils:
     def removeRow(socket):
         return ""
 
-    def CurrentTime():
+    def CurrentTime(): # This is date and time not just time !
         return datetime.datetime.now()
 
     def CheckForPython3Unix():

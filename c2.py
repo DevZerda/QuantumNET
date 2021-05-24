@@ -1,15 +1,23 @@
 #
 #
-#@title: Quantum NET
-#@since: 5/18/21
-#@creator: Quantum Security Team (vl0b, Exo, clever, Max, Beta)
+# @title: Quantum NET
+# @since: 5/18/21
+# @creator: Quantum Security Team (vl0b, Exo, clever, Max, Beta)
 #
 #
 
-## Modules
-import socket, sys, os, requests, time, threading, requests, random, datetime
+# Modules
+import socket
+import sys
+import os
+import requests
+import time
+import threading
+import requests
+import random
+import datetime
 
-## Files
+# Files
 from assets.Config.main import *
 from assets.Config.current import *
 from assets.Auth.main import *
@@ -20,7 +28,7 @@ from assets.Logger.discord import *
 from assets.banner_system.modify import *
 from assets.utils.main import utils
 
-## Commands
+# Commands
 from assets.Commands.help import *
 from assets.Commands.methods import *
 from assets.Commands.geo import *
@@ -37,70 +45,75 @@ from assets.Commands.admin import *
 #         print("This is currently for LINUX!")
 #         exit()
 
-
-buffer_length = 1024
+buffer_length = 1024 # We Set The Buffer Over Here So It Can Be Reused So Use It Stop Typing 1024
 host = "0.0.0.0"
+timenow = datetime.datetime.now()
 port = random.randint(0, 65535)
-timenow = datetime.datetime.now() # current time
 if len(sys.argv) == 2:
-        if sys.argv[1] == "-on":
-                host = requests.get("https://api.ipify.org").text
+    if sys.argv[1] == "-on":
+        host = requests.get("https://api.ipify.org").text
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Try To Reuse Port Bypass TIME_WAIT Sometimes
+# Try To Reuse Port Bypass TIME_WAIT Sometimes
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind((host, port))
 sock.listen()
 
-print(f"Quantum Started | {host} | {port}")
+print(f"[{datetime.datetime.now()}] | Quantum Started | {host} | {port} |") # Added Date And Time So You Can See When Was The Last Time The Net Started !
+
 
 def handle_connection(client, addr):
-        utils.set_Title(client, "Login")
+    utils.set_Title(client, "Login")
 
+    # User Input Login Section
+    client.send("Username: ".encode())
+    username = client.recv(buffer_length).decode().strip().replace("\r\n", "")
+    # client.recv(1024).decode()
+    client.send("Password: ".encode())
+    password = client.recv(buffer_length).decode().strip().replace("\r\n", "")
 
-        ## User Input Login Section
-        client.send("Username: ".encode())
-        username = client.recv(1024).decode().strip().replace("\r\n", "")
-        ## client.recv(1024).decode()
-        client.send("Password: ".encode())
-        password = client.recv(1024).decode().strip().replace("\r\n", "")
+    client.send(f"{username} | {password}\r\n".encode())
+    client.send("Welcome to Quantum Net\r\n".encode())
 
-        client.send(f"{username} | {password}\r\n".encode())
-        client.send("Welcome to Quantum Net\r\n".encode())
+    # Login Check
+    if "[+]" in Auth.Login(username, password, addr[0]): # This is a weird way of authentication lol 
+        client.send(f"Welcome: {username}\r\n".encode())
+    else:
+        client.send(
+            "[x] Error, Incorrect username or password. Try again....".encode())
+        time.sleep(4)
+        client.close()
 
-        ## Login Check
-        if "[+]" in Auth.Login(username, password, addr[0]):
-                client.send(f"Welcome: {username}".encode())
-        else:
-                client.send("[x] Error, Incorrect username or password. Try again....".encode())
-                time.sleep(4)
-                client.close()
+    utils.set_Title(client, f"Quantum NET | User: {username}")
 
-        utils.set_Title(client, f"Quantum NET | User: {username}")
+    while(True):
+        client.send(Strings.hostname(username).encode())
+        data = str(client.recv(buffer_length).decode()
+                   ).strip().replace("\r\n", "")
 
-        while(True):
-                client.send(Strings.hostname(username).encode())
-                data = str(client.recv(buffer_length).decode()).strip().replace("\r\n", "")
+        # Command Handling
+        if data != "\r\n":
+            Current.CurrentCmd["args"] = data.split(" ")
+            Current.CurrentCmd["fullcmd"] = data
 
-                ## Command Handling
-                if data != "\r\n":
-                        Current.CurrentCmd["args"] = data.split(" ")
-                        Current.CurrentCmd["fullcmd"] = data
-                
-                if data.lower() == "help":
-                        help_command(client)
-                elif data.lower().startswith("geo"):
-                        geo_command(client, Current.CurrentCmd["args"])
-                elif data.lower().startswith("admin"):
-                        Admin_Command(client, Current.CurrentCmd['args'])
-                        
+        if data.lower() == "help":
+            help_command(client)
+        elif data.lower().startswith("geo"):
+            geo_command(client, Current.CurrentCmd["args"])
+        elif data.lower().startswith("admin"):
+            Admin_Command(client, Current.CurrentCmd['args'])
 
-                MainLogger.Log("CMD", True)
-                client.send(Strings.hostname(username).encode())
-        
+        MainLogger.Log("CMD", True)
+        client.send(Strings.hostname(username).encode())
+
 
 def listener():
     while True:
         client, address = sock.accept()
-        threading.Thread(target=handle_connection, args=(client,address)).start()
-        print(Strings.MainColors['Red'] + "TCP Connection From " + address[0] + ":" + str(address[1]) + Strings.MainColors['Reset'])
+        threading.Thread(target=handle_connection,
+                         args=(client, address)).start()
+        print(Strings.MainColors['Red'] + "TCP Connection From " +
+              address[0] + ":" + str(address[1]) + Strings.MainColors['Reset'])
+
+
 threading.Thread(target=listener).start()
