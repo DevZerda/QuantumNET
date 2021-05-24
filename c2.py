@@ -39,9 +39,9 @@ from assets.Commands.admin import *
 
 buffer_length = 1024
 host = "0.0.0.0"
+timenow = datetime.datetime.now()
 try:
         port = random.randint(0, 65535)
-        timenow = datetime.datetime.now() # current time
        except:
         print("[X] Error! Error binding port.")
 if len(sys.argv) == 2:
