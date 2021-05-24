@@ -1,4 +1,5 @@
 from assets.utils.main import *
+from assets.banner_system.modify import *
 
 # print(BannerModify.GetBannerFromFile("help"))
 
@@ -8,5 +9,4 @@ from assets.utils.main import *
 
 # print(CRUD.RemoveUser(sys.argv[1]))
 
-test = utils.arr2str(['testing', 'this'], sys.argv[1])
-print(test)
+print(BannerModify.GetBannerFromFile("help"))
