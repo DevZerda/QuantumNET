@@ -13,6 +13,9 @@ def Admin_Command(socket, argv):
         # Exmaple: admin -add username password level maxtime admin
         #            0     1      2        3      4      5      6
         # Exmaple: admin -update username new_level max_time new_admin
+        # Example: admin -remove username
+        # Example: admin -find_user username
+        # Example: admin -motd new_motd
         if admin_tool == "-add":
             if len(argv) == 7:
                 createResp = CRUD.CreateUser(argv[2], argv[3], argv[4], argv[5], argv[6])
