@@ -46,7 +46,8 @@ def Admin_Command(socket, argv):
         elif admin_tool == "-login":
             if len(argv) == 3:
                 if argv[2] == "on":
-                    
+                    ##stopped here
+                    return "" ##temporary
 
     else:
         socket.send("[x] Error, Invalid Argument.\r\n".encode())
