@@ -60,5 +60,4 @@ class BannerFunc():
         bnnr = bnnr.replace("{BG_LIGHTGREEN}", Strings.MainColors['Background_LightGreen'])
         bnnr = bnnr.replace("{BG_LIGHTYELLOW}", Strings.MainColors['Background_LightYellow'])
         bnnr = bnnr.replace("{BG_RESET}", Strings.MainColors['Background_Reset'])
-
-    
+        return bnnr # Im pretty sure we will return banner right?

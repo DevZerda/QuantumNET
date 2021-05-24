@@ -45,7 +45,7 @@ from assets.Commands.admin import *
 #         print("This is currently for LINUX!")
 #         exit()
 
-buffer_length = 1024
+buffer_length = 1024 # We Set The Buffer Over Here So It Can Be Reused So Use It Stop Typing 1024
 host = "0.0.0.0"
 timenow = datetime.datetime.now()
 port = random.randint(0, 65535)
@@ -59,7 +59,7 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind((host, port))
 sock.listen()
 
-print(f"Quantum Started | {host} | {port}")
+print(f"[{datetime.datetime.now()}] | Quantum Started | {host} | {port} |") # Added Date And Time So You Can See When Was The Last Time The Net Started !
 
 
 def handle_connection(client, addr):
@@ -67,17 +67,17 @@ def handle_connection(client, addr):
 
     # User Input Login Section
     client.send("Username: ".encode())
-    username = client.recv(1024).decode().strip().replace("\r\n", "")
+    username = client.recv(buffer_length).decode().strip().replace("\r\n", "")
     # client.recv(1024).decode()
     client.send("Password: ".encode())
-    password = client.recv(1024).decode().strip().replace("\r\n", "")
+    password = client.recv(buffer_length).decode().strip().replace("\r\n", "")
 
     client.send(f"{username} | {password}\r\n".encode())
     client.send("Welcome to Quantum Net\r\n".encode())
 
     # Login Check
-    if "[+]" in Auth.Login(username, password, addr[0]):
-        client.send(f"Welcome: {username}".encode())
+    if "[+]" in Auth.Login(username, password, addr[0]): # This is a weird way of authentication lol 
+        client.send(f"Welcome: {username}\r\n".encode())
     else:
         client.send(
             "[x] Error, Incorrect username or password. Try again....".encode())
