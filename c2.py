@@ -78,6 +78,7 @@ def handle_connection(client, addr):
     # Login Check
     if "[+]" in Auth.Login(username, password, addr[0]): # This is a weird way of authentication lol 
         client.send(f"Welcome: {username}\r\n".encode())
+        client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main")).encode())
     else:
         client.send("[x] Error, Incorrect username or password. Try again....".encode())
         time.sleep(4)
@@ -91,24 +92,25 @@ def handle_connection(client, addr):
 
         # Command Handling
         if data != "\r\n":
-            Current.CurrentCmd["args"] = data.split(" ")
-            Current.CurrentCmd["fullcmd"] = data
+                Current.CurrentCmd["args"] = data.split(" ")
+                Current.CurrentCmd["fullcmd"] = data
 
-        if data.lower() == "help":
-            help_command(client)
+        if data.lower() == "help" or data.lower() == "?":
+                help_command(client)
+        elif data.lower() == "clear" or data.lower() == "cls":
+                client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main")).encode())
         elif data.lower().startswith("geo"):
-            geo_command(client, Current.CurrentCmd["args"])
+                geo_command(client, Current.CurrentCmd["args"])
         elif data.lower().startswith("admin"):
-            Admin_Command(client, Current.CurrentCmd['args'])
+                Admin_Command(client, Current.CurrentCmd['args'])
 
         MainLogger.Log("CMD", True)
-        client.send(Strings.hostname(username).encode())
 
 
 def listener():
     while True:
         client, address = sock.accept()
-        threading.Thread(target=handle_connection, rgs=(client, address)).start()
+        threading.Thread(target=handle_connection, args=(client, address)).start()
         print(Strings.MainColors['Red'] + "TCP Connection From " + address[0] + ":" + str(address[1]) + Strings.MainColors['Reset'])
 
 
