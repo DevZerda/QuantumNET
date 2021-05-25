@@ -62,7 +62,7 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"[{datetime.datetime.now()}] | Quantum Started | {host} | {port} |") # Added Date And Time So You Can See When Was The Last Time The Net Started !
-
+Discord.send_status(f"Quantum NET successfully started!\n\nHost: {host} | Port {port}\r\nTime: {utils.CurrentTime()}")
 
 def handle_connection(client, addr):
     utils.set_Title(client, "Login")
@@ -70,7 +70,7 @@ def handle_connection(client, addr):
     # User Input Login Section
     client.send("Username: ".encode())
     username = client.recv(buffer_length).decode().strip().replace("\r\n", "")
-    # client.recv(1024).decode()
+    client.recv(1024).decode()
     client.send("Password: ".encode())
     password = client.recv(buffer_length).decode().strip().replace("\r\n", "")
 
@@ -94,7 +94,7 @@ def handle_connection(client, addr):
         data = str(client.recv(buffer_length).decode()).strip().replace("\r\n", "")
 
         # Command Handling
-        if data != "\r\n":
+        if data != "\r\n" or data != "":
                 Current.CurrentCmd["args"] = data.split(" ")
                 # Current.CurrentCmd['Cmd'] = data[0]
                 Current.CurrentCmd["fullcmd"] = data
@@ -120,14 +120,17 @@ def handle_connection(client, addr):
                 pScan_command(client, Current.CurrentCmd['args'])
         elif data.lower().startswith("admin"):
                 Admin_Command(client, Current.CurrentCmd['args'])
-        if data != "\r\n":
+        if data != "\r\n" or data != "":
                 MainLogger.Log("CMD", True)
 
 
 def listener():
     while True:
         client, address = sock.accept()
-        threading.Thread(target=handle_connection, args=(client, address)).start()
+        try:
+                threading.Thread(target=handle_connection, args=(client, address)).start()
+        except:
+                print("Client Disconnected!")
         print(Strings.MainColors['Red'] + "TCP Connection From " + address[0] + ":" + str(address[1]) + Strings.MainColors['Reset'])
 
 
