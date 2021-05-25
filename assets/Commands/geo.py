@@ -6,6 +6,12 @@ import json
 
 
 def geo_command(socket, argv):
+    """
+    Display geo location from an IP address
+
+    :param socket: socket from cnc
+    :param argv: arguments from cmd
+    """
     if len(argv) == 2:
         jsonResp = (requests.get(
             "http://extreme-ip-lookup.com/json/" + argv[1]).text)
