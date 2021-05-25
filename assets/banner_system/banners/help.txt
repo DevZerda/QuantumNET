@@ -6,6 +6,7 @@
    ║ {RED}Methods{YELLOW}     ║ {RED}List of Methods{YELLOW} ║ {RED}Methods{YELLOW}                                ║
    ║ {RED}Geo IP{YELLOW}      ║ {RED}Geo Locate A IP{YELLOW} ║ {RED}geo <ip>{YELLOW}                               ║
    ║ {RED}Port Scan{YELLOW}   ║ {RED}Scan for Ports{YELLOW}  ║ {RED}scan <ip>{YELLOW}                              ║
+   ║ {RED}Resolve web{YELLOW} ║ {RED}Grab Backends{YELLOW}   ║ {RED}resolve  {YELLOW}                              ║
    ║ {RED}Stresser{YELLOW}    ║ {RED}Attack an IP{YELLOW}    ║ {RED}stress <ip> <port> <time> <method>{YELLOW}     ║
    ║ {RED}Roots{YELLOW}       ║ {RED}Attack an IP{YELLOW}    ║ {RED}roots <ip> <port> <time> <method>{YELLOW}      ║
    ║ {RED}Bots{YELLOW}        ║ {RED}Attack an IP{YELLOW}    ║ {RED}bots <ip> <port> <time> <method>{YELLOW}       ║
