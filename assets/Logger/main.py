@@ -14,17 +14,21 @@ class MainLogger:
             logResp += "User: " + Current.CurrentInfo['Username'] + " | IP: " + Current.CurrentInfo['IP'] + "\n"
             logResp += "Level: " + str(Current.CurrentInfo['Level']) + " | Admin: " + str(Current.CurrentInfo['Admin']) + "\n"
             logResp += "Cmd: " + Current.CurrentCmd['Cmd'] + " | Full CMD: " + Current.CurrentCmd['fullcmd'] + "\n"
+        else:
+            logResp = logType
         print(logResp)
 
         LogTypes.LogCommand(logResp)
         if logType == "attack":
             LogTypes.LogAttack(logResp)
-        elif logType == "login":
+        elif "login: " in logType:
             LogTypes.LogLogin(logResp)
         elif logType == "status":
             LogTypes.Log
 
         Discord.send_logs(logResp)
+        if notification == True:
+            LogTypes.sendDiscord(logType, logResp)
 
 
 
@@ -35,7 +39,7 @@ class LogTypes:
             Discord.send_attack(msg)
         elif Type == "status":
             Discord.send_status(msg)
-        elif Type == "login":
+        elif "login" in Type:
             Discord.send_login(msg)
 
     def LogCommand(logThis):
@@ -44,13 +48,13 @@ class LogTypes:
         logsDB.close()
 
     def LogAttack(logThis):
-        attkDB = open("./db/attacks.db", "a")
+        attkDB = open("./assets/db/attacks.db", "a")
         attkDB.write(logThis)
         attkDB.close()
         
 
     def LogLogin(logThis):
-        LoginDB = open("./db/logins.db", "a")
+        LoginDB = open("./assets/db/logins.db", "a")
         LoginDB.write(logThis)
         LoginDB.close()
 
