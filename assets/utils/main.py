@@ -33,15 +33,6 @@ class utils:
             else:
                 return False
 
-    def GetOS():
-        if "Windows" in platform.platform():
-            return False
-        elif "Linux" in platform.platform():
-            return True
-        else:
-            print("[x] Error, This net does not support this OS")
-            exit()
-
     def FlashingCursor(socket):
         while(True):
             socket.send("\033[?25l".encode())
@@ -51,3 +42,14 @@ class utils:
 
     def MOTD(motd):
         return ""
+
+
+class OS_Func:
+    def GetOSType():
+        if "Windows" in platform.platform():
+            return False
+        elif "Linux" in platform.platform():
+            return True
+        else:
+            print("[x] Error, This net does not support this OS")
+            exit()
