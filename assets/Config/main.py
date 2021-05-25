@@ -1,6 +1,14 @@
 
 class Strings():
 
+	appInfo = {
+		"appCreator": "Zerda",
+		"appOwner": "Exo",
+		"appDevs": "vl0b, Exo, clever, Max, Beta",
+		"appAdmins": "",
+		"appVersion": "1.00"
+	}
+
 	def hostname(name):
 		addName = "Net"
 		if name:
