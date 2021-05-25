@@ -34,6 +34,7 @@ from assets.Commands.methods import *
 from assets.Commands.geo import *
 from assets.Commands.cf import *
 from assets.Commands.admin import *
+from netControl.get_usage import *
 
 # if utils.GetOS() == True:
 #         if utils.CheckForPython3Unix() == True:
@@ -79,6 +80,7 @@ def handle_connection(client, addr):
     if "[+]" in Auth.Login(username, password, addr[0]): # This is a weird way of authentication lol 
         client.send(f"Welcome: {username}\r\n".encode())
         client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main")).encode())
+        MainLogger.Log(f"login: {username} | {password} {utils.CurrentTime()}", True)
     else:
         client.send("[x] Error, Incorrect username or password. Try again....".encode())
         time.sleep(4)
@@ -93,18 +95,30 @@ def handle_connection(client, addr):
         # Command Handling
         if data != "\r\n":
                 Current.CurrentCmd["args"] = data.split(" ")
+                # Current.CurrentCmd['Cmd'] = data[0]
                 Current.CurrentCmd["fullcmd"] = data
+                Current.CurrentInfo['Username'] = username
+
+        client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main")).encode())
 
         if data.lower() == "help" or data.lower() == "?":
-                help_command(client)
+                client.send(str(BannerModify.GetBannerFromFile("help")).encode())
         elif data.lower() == "clear" or data.lower() == "cls":
-                client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main")).encode())
+                client.send(str(BannerModify.GetBannerFromFile("main")).encode())
+        elif data.lower() == "methods":
+                client.send(str(BannerModify.GetBannerFromFile("methods")).encode())
+        elif data.lower() == "api_status":
+                client.send(str(BannerModify.GetBannerFromFile("api_status")).encode())
+        elif data.lower() == "usage":
+                client.send(str(Usage.Usage()).encode())
         elif data.lower().startswith("geo"):
                 geo_command(client, Current.CurrentCmd["args"])
+        elif data.lower().startswith("pscan"):
+                pScan_command(client, Current.CurrentCmd['args'])
         elif data.lower().startswith("admin"):
                 Admin_Command(client, Current.CurrentCmd['args'])
-
-        MainLogger.Log("CMD", True)
+        if data != "\r\n":
+                MainLogger.Log("CMD", True)
 
 
 def listener():
