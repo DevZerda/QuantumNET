@@ -4,8 +4,8 @@ class Strings():
 	appInfo = {
 		"appCreator": "Zerda",
 		"appOwner": "Exo",
-		"appDevs": "vl0b, Exo, clever, Max, Beta",
-		"appAdmins": "",
+		"appDevs": "Zerda, Exo, clever, Max, Beta",
+		"appAdmins": "Pressure",
 		"appVersion": "1.00"
 	}
 
@@ -14,7 +14,7 @@ class Strings():
 		if name:
 			addName = name
 		
-		host = "\r[Quantum@" + addName + "]══► $ "
+		host = "\r\x1b[33m[\x1b[31mQuantum\x1b[33m@\x1b[31m" + addName + "\x1b[33m]══► $ "
 		return host
 
 	MainColors = {
