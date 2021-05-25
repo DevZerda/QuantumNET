@@ -34,7 +34,6 @@ from assets.Commands.methods import *
 from assets.Commands.geo import *
 from assets.Commands.cf import *
 from assets.Commands.admin import *
-from assets.Commands.playboy import *
 from netControl.get_usage import *
 
 # if utils.GetOS() == True:
