@@ -15,6 +15,10 @@ class BannerModify:
             slash = "\\"
             
         ## isnt reading file data or character symbols from file [THIS NEEDS TO BE FIXED]
+        if utils.GetOS() == True:
+            print(os.getcwd() + slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt")
+        else:
+            print(os.getcwd() + slash + "Quantum\\assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt")
         try:
             BannerFile = open(os.getcwd() + slash + "assets" + slash + "banner_system" + slash + "banners" + slash + filee + ".txt","r")
             BannerFile = BannerFile.read()
