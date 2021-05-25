@@ -20,8 +20,8 @@ class utils:
     def moveDown_Cursor(socket):
         return
 
-    def removeRow(socket):
-        return ""
+    def removeAllToStart(socket):
+        socket.send("\033[1K".encode())
 
     def CurrentTime(): # This is date and time not just time !
         return datetime.datetime.now()
@@ -53,3 +53,4 @@ class OS_Func:
         else:
             print("[x] Error, This net does not support this OS")
             exit()
+
