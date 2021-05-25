@@ -202,3 +202,43 @@ Log: CMD | Time: 2021-05-24 18:34:13.799069
 User:  | IP: 
 Level: 0 | Admin: 0
 Cmd:  | Full CMD: clear
+Log: CMD | Time: 2021-05-24 18:50:25.462339
+User:  | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: help
+Log: CMD | Time: 2021-05-24 18:50:41.379936
+User:  | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: help
+login: root | root 2021-05-24 18:59:40.581718login: root | root 2021-05-24 19:00:17.601447login: root | root 2021-05-24 19:01:08.549181Log: CMD | Time: 2021-05-24 19:01:10.047050
+User:  | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: help
+login: root | root 2021-05-24 19:02:34.509246login: root | root 2021-05-24 19:27:05.400876Log: CMD | Time: 2021-05-24 19:27:08.688197
+User:  | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: aapi_status
+Log: CMD | Time: 2021-05-24 19:27:11.556279
+User:  | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: api_status
+login: root | root 2021-05-24 19:40:57.272448login: root | root 2021-05-24 19:43:47.184820Log: CMD | Time: 2021-05-24 19:43:49.379815
+User:  | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: help
+Log: CMD | Time: 2021-05-24 19:43:55.170478
+User:  | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: api_status
+login: root | root 2021-05-24 19:44:31.679319Log: CMD | Time: 2021-05-24 19:44:35.071066
+User:  | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: usage
+login: root | root 2021-05-24 19:50:02.432797login: root | root 2021-05-24 19:50:48.717387login: root | root 2021-05-24 20:01:04.556094Log: CMD | Time: 2021-05-24 20:01:07.233169
+User: root | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: usage
+Log: CMD | Time: 2021-05-24 20:06:51.116417
+User: root | IP: 
+Level: 0 | Admin: 0
+Cmd:  | Full CMD: 
