@@ -21,3 +21,6 @@ class PythonInstalls():
         os.system("sudo apt install python3")
         os.system("sudo yum install pip3")
         os.system("sudo apt install pip3")
+
+    def installDependencies():
+        os.system("")
