@@ -107,6 +107,8 @@ def handle_connection(client, addr):
 
                 if data.lower() == "help" or data.lower() == "?":
                         client.send(str(BannerModify.GetBannerFromFile("help")).encode())
+                if "reslove" in data:
+                    cloudflare_resolve(client)
                 elif data.lower() == "clear" or data.lower() == "cls":
                         continue
                 elif data.lower() == "methods":
