@@ -2,6 +2,9 @@ import os, sys, time
 from .crud import *
 
 class CrudFunctions:
+    def TokenValidation(rtoken):
+        return ""
+        
     def ChangePW(user, newpw):
         info = CRUD.GetUser(user).split(",")
         CRUD.RemoveUser(user)
