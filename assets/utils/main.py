@@ -40,8 +40,15 @@ class utils:
             socket.send("\033[?25h\033[?0c".encode())
             time.sleep(1)
 
-    def MOTD(motd):
-        return ""
+    def changeMOTD(new_motd):
+        motd = open("./assets/db/motd.db", "w")
+        motd.write(new_motd)
+        motd.close()
+        return f"MOTD Successfully changed to ({new_motd})"
+
+    def GetMOTD():
+        motd = open("./assets/db/motd.db", "r").read()
+        return motd
 
 
 class OS_Func:
@@ -53,4 +60,16 @@ class OS_Func:
         else:
             print("[x] Error, This net does not support this OS")
             exit()
+
+class arrUtils:
+    def arr2str(arr):
+        if isinstance(arr, list) == False:
+            print("[x] Error, Invalid value provided!")
+            exit(0)
+        n_str = ""
+        for u in arr:
+            n_str += u
+
+        return n_str
+
 
