@@ -1,46 +1,58 @@
-                 Primacy API
-             {BG_YELLOW}{BLACK}[+] Home Methods [+]{RESET}{BG_RESET}   {BG_YELLOW}{BLACK}[+] OVH Methods [+]{RESET}{BG_RESET}
-             {BG_RED}{BLACK}HOME-KILL{RESET}           {BG_RESET}   {BG_RED}{BLACK}OVH-RIOT  {RESET}{BG_RESET}
-             {BG_RED}{BLACK}NTP                 {RESET}{BG_RESET}   {BG_RED}{BLACK}OVH-UDP   {RESET}{BG_RESET}
-             {BG_RED}{BLACK}LDAP                {RESET}{BG_RESET}   {BG_RED}{BLACK}100UP-SLAP{RESET}{BG_RESET}
-
-             {BG_YELLOW}{BLACK}[+] NFO Methods [+]{RESET}{BG_RESET}     {BG_YELLOW}{BLACK}[+] Hydra Methods [+]{RESET}{BG_RESET}
-             {BG_RED}{BLACK}NFO-RIOT           {RESET}{BG_RESET}     {BG_RED}{BLACK}HYDRA-KILL           {RESET}{BG_RESET}
-             {BG_RED}{BLACK}NFO-LAUNCH         {RESET}{BG_RESET}
-
-             {BG_YELLOW}{BLACK}[+] Game Methods [+]{RESET}{BG_RESET}
-             {BG_RED}{BLACK}FORTNITE           {RESET}{BG_RESET}
-             {BG_RED}{BLACK}ARK-LIT            {RESET}{BG_RESET}
-             {BG_RED}{BLACK}APEX-DROP          {RESET}{BG_RESET}
-             {BG_RED}{BLACK}ROBLOX-DOWN        {RESET}{BG_RESET}
-             {BG_RED}{BLACK}R6-DROP            {RESET}{BG_RESET}
-             {BG_RED}{BLACK}2K                 {RESET}{BG_RESET}
-             {BG_RED}{BLACK}DVR                {RESET}{BG_RESET}
-
-                    Gamma API
-             {BG_YELLOW}{BLACK}[+] Home Methods [+]{RESET}{BG_RESET}     {BG_YELLOW}{BLACK}[+] Server Methods [+]{RESET}{BG_RESET}
-             {BG_RED}{BLACK}HOME-MAFIA          {RESET}{BG_RESET}     {BG_RED}{BLACK}100UP-SSH             {RESET}{BG_RESET}
-             {BG_RED}{BLACK}HOME-LAG            {RESET}{BG_RESET}     {BG_RED}{BLACK}100UP-CPU             {RESET}{BG_RESET}
-                                      {BG_RED}{BLACK}100UP-MAFIA           {RESET}{BG_RESET}
-                                      {BG_RED}{BLACK}TEMPEST-CPU           {RESET}{BG_RESET}
-                                      {BG_RED}{BLACK}HYDRA-KILL            {RESET}{BG_RESET}
-                                      {BG_RED}{BLACK}SSH-PRIMACY           {RESET}{BG_RESET}
-                                      {BG_RED}{BLACK}DHCP-MAFIA            {RESET}{BG_RESET}
-
-             {BG_YELLOW}{BLACK}[+] OVH Methods [+]{RESET}{BG_RESET}      {BG_YELLOW}{BLACK}[+] NFO Methods [+]{RESET}{BG_RESET}
-             {BG_RED}{BLACK}OVH-X              {RESET}{BG_RESET}      {BG_RED}{BLACK}NFO-CPU            {RESET}{BG_RESET}
-             {BG_RED}{BLACK}OVH-STOMP          {RESET}{BG_RESET}      {BG_RED}{BLACK}NFO-TIMEOUT        {RESET}{BG_RESET}
-             {BG_RED}{BLACK}OVH-CPU            {RESET}{BG_RESET}      {BG_RED}{BLACK}NFO-TRY            {RESET}{BG_RESET}
-             {BG_RED}{BLACK}OVH-BLAST          {RESET}{BG_RESET}      {BG_RED}{BLACK}NFO-MAFIA          {RESET}{BG_RESET}
-             {BG_RED}{BLACK}OVH-PRIMACY        {RESET}{BG_RESET}      {BG_RED}{BLACK}NFO-METH           {RESET}{BG_RESET}
-             {BG_RED}{BLACK}OVH-SEND           {RESET}{BG_RESET}      {BG_RED}{BLACK}NFO-PRIMACY        {RESET}{BG_RESET}
-             {BG_RED}{BLACK}OVH-UWU            {RESET}{BG_RESET}      {BG_RED}{BLACK}NFO-COCAINE        {RESET}{BG_RESET}
-
-             {BG_YELLOW}{BLACK}[+] Game Methods [+]{RESET}{BG_RESET}     {BG_YELLOW}{BLACK}[+] L7 Methods [+]{RESET}{BG_RESET}
-             {BG_RED}{BLACK}MINECRAFT-SERVER    {RESET}{BG_RESET}     {BG_RED}{BLACK}HTTPS-GET         {RESET}{BG_RESET}
-             {BG_RED}{BLACK}FIVEM-PRIMACY       {RESET}{BG_RESET}     {BG_RED}{BLACK}HTTPS-POST        {RESET}{BG_RESET}
-             {BG_RED}{BLACK}FIVEM-BYPASS        {RESET}{BG_RESET}     {BG_RED}{BLACK}HTTPS-HEAD        {RESET}{BG_RESET}
-             {BG_RED}{BLACK}R6-LAG              {RESET}{BG_RESET}     {BG_RED}{BLACK}HTTPS-MAFIA       {RESET}{BG_RESET}
-             {BG_RED}{BLACK}ROBLOX-SERVER       {RESET}{BG_RESET}     {BG_RED}{BLACK}HTTPS-PRIMACY     {RESET}{BG_RESET}
-             {BG_RED}{BLACK}BATTLENET           {RESET}{BG_RESET}     {BG_RED}{BLACK}HTTPS-REQUEST     {RESET}{BG_RESET}
-             {BG_RED}{BLACK}ARK-PRIMACY         {RESET}{BG_RESET}
+       {YELLOW}╔════════════════════════════════════════════════════════════════╗
+       ║                              {RED}Methods{YELLOW}                           ║
+       ╚═════╦═════════╦══════════╦═══════╦══════════════╦═══════╦══════╝
+             ║  {RED}API 1{YELLOW}  ║          ║ {RED}API 3{YELLOW} ║              ║ {RED}API 4{YELLOW} ║ 
+        ╔════╩═════════╩════╗ ╔═══╩═══════╩════════╗ ╔═══╩═══════╩═════╗
+        ║ → {RED}VST-2K{YELLOW}          ║ ║ → {RED}HOME-MAFIA{YELLOW}       ║ ║ → {RED}HOME{YELLOW}          ║
+        ║ → {RED}VST-R6{YELLOW}          ║ ║ → {RED}HOME-LAG{YELLOW}         ║ ║ → {RED}NTP{YELLOW}           ║
+        ║ → {RED}VST-FN{YELLOW}          ║ ║ → {RED}100UP-SSH{YELLOW}        ║ ║ → {RED}SNMP{YELLOW}          ║
+        ║ → {RED}VST-COD{YELLOW}         ║ ║ → {RED}100UP-CPU{YELLOW}        ║ ║ → {RED}MDNS{YELLOW}          ║
+        ║ → {RED}VST-VPN{YELLOW}         ║ ║ → {RED}100UP-MAFIA{YELLOW}      ║ ║ → {RED}SSDP{YELLOW}          ║
+        ║ → {RED}VST-OVH{YELLOW}         ║ ║ → {RED}TEMPEST-CPU{YELLOW}      ║ ║ → {RED}DVR{YELLOW}           ║
+        ║ → {RED}VST-NFO{YELLOW}         ║ ║ → {RED}HYDRA-KILL{YELLOW}       ║ ║ → {RED}LDAP{YELLOW}          ║
+        ║ → {RED}VST-SUDP{YELLOW}        ║ ║ → {RED}SSH-PRIMACY{YELLOW}      ║ ║ → {RED}UDPBYPASS{YELLOW}     ║
+        ║ → {RED}VST-STCP{YELLOW}        ║ ║ → {RED}DHCP-MAFIA{YELLOW}       ║ ║ → {RED}SSHKILL{YELLOW}       ║
+        ║ → {RED}VST-HOME{YELLOW}        ║ ║ → {RED}OVH-X{YELLOW}            ║ ║ → {RED}SYNBYPASS{YELLOW}     ║
+        ║ → {RED}VST-GAME{YELLOW}        ║ ║ → {RED}OVH-STOMP{YELLOW}        ║ ║ → {RED}KILLALL{YELLOW}       ║
+        ║ → {RED}VST-OVHV2{YELLOW}       ║ ║ → {RED}OVH-CPU{YELLOW}          ║ ║ → {RED}NFO{YELLOW}           ║
+        ║ → {RED}VST-OVHV3{YELLOW}       ║ ║ → {RED}OVH-BLAST{YELLOW}        ║ ║ → {RED}NFOV2{YELLOW}         ║
+        ║ → {RED}VST-NFOV2{YELLOW}       ║ ║ → {RED}OVH-PRIMACY{YELLOW}      ║ ║ → {RED}OVH{YELLOW}           ║
+        ║ → {RED}VST-NFOV3{YELLOW}       ║ ║ → {RED}OVH-SEND{YELLOW}         ║ ║ → {RED}100UP{YELLOW}         ║
+        ║ → {RED}VST-SYNACK{YELLOW}      ║ ║ → {RED}OVH-UWU{YELLOW}          ║ ║ → {RED}OVH-UDP{YELLOW}       ║
+        ║ → {RED}VST-OPENVPN{YELLOW}     ║ ║ → {RED}NFO-CPU{YELLOW}          ║ ║ → {RED}OVH-UDPV1{YELLOW}     ║
+        ║ → {RED}VST-DEDIPATH{YELLOW}    ║ ║ → {RED}NFO-TIMEOUT{YELLOW}      ║ ║ → {RED}OVH-TCPV1{YELLOW}     ║
+        ║ → {RED}VST-KILLALLV3{YELLOW}   ║ ║ → {RED}NFO-TRY{YELLOW}          ║ ║ → {RED}OVH-UDPV2{YELLOW}     ║
+        ║ → {RED}VST-XCF{YELLOW}         ║ ║ → {RED}NFO-MAFIA{YELLOW}        ║ ║ → {RED}NFO-TCP{YELLOW}       ║
+        ║ → {RED}VST-GET{YELLOW}         ║ ║ → {RED}NFO-METH{YELLOW}         ║ ║ → {RED}HOTSPOT{YELLOW}       ║
+        ║ → {RED}VST-HEAD{YELLOW}        ║ ║ → {RED}NFO-PRIMACY{YELLOW}      ║ ║ → {RED}HYDRA-X{YELLOW}       ║
+        ║ → {RED}VST-POST{YELLOW}        ║ ║ → {RED}NFO-COCAINE{YELLOW}      ║ ║ → {RED}MAXIHOST{YELLOW}      ║
+        ║ → {RED}VST-HTTPS{YELLOW}       ║ ║ → {RED}MINECRAFT-SERVER{YELLOW} ║ ║ → {RED}APEX{YELLOW}          ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}FIVEM-PRIMACY{YELLOW}    ║ ║ → {RED}FIVEM{YELLOW}         ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}FIVEM-BYPASS{YELLOW}     ║ ║ → {RED}ROBLOX{YELLOW}        ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}R6-LAG{YELLOW}           ║ ║ → {RED}ARK-255{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}ROBLOX-SERVER{YELLOW}    ║ ║ → {RED}ARK-LIFT{YELLOW}      ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}BATTLENET{YELLOW}        ║ ║ → {RED}GAME-KILL{YELLOW}     ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}ARK-PRIMACY{YELLOW}      ║ ║ → {RED}WARZONE{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}HTTPS-GET{YELLOW}        ║ ║ → {RED}AMOUNGUS{YELLOW}      ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}HTTPS-POST{YELLOW}       ║ ║ → {RED}CALLOFDUTY{YELLOW}    ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}HTTPS-HEAD{YELLOW}       ║ ║ → {RED}FORTNITE{YELLOW}      ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}HTTPS-MAFIA{YELLOW}      ║ ║ → {RED}PUBG{YELLOW}          ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}HTTPS-PRIMACY{YELLOW}    ║ ║ → {RED}R6-RAPE{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}HTTPS-REQUEST{YELLOW}    ║ ║ → {RED}WEBEX{YELLOW}         ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}TCP{YELLOW}           ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}TCP-SYN{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}TCP-ACK{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}TCP-RST{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}TCP-PSH{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}TCP-TS3{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}UDP{YELLOW}           ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}UDP-MIX{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}UDPBYPASS{YELLOW}     ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}SPOOF-UDP{YELLOW}     ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}UDPV2{YELLOW}         ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}UDP-VX{YELLOW}        ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}TCP-TS3{YELLOW}       ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}HTTP{YELLOW}          ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}HTTPV2{YELLOW}        ║
+        ║ → {RED}NA{YELLOW}              ║ ║ → {RED}N/A{YELLOW}              ║ ║ → {RED}L7-DSTAT{YELLOW}      ║
+        ╚═══════════════════╝ ╚════════════════════╝ ╚═════════════════╝
