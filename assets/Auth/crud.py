@@ -1,4 +1,4 @@
-import os, sys, time
+import os, sys, time, subprocess
 
 class CRUD:
     def GetUser(Finduser):
@@ -65,6 +65,27 @@ class CRUD:
         w_db = open("./assets/db/users.db", "w")
         w_db.write(new_db)
         return f"User: {user} successfully updated!\r\n"
+
+    def CreateRegisterToken(level, time, admin):
+        tokenDB = open("./assets/db/tokens.db", "a")
+        new_token = subprocess.getoutput("tr -dc A-Za-z0-9 </dev/urandom | head -c 45 ; echo ''")
+        tokenDB.write(f"token={new_token},level={level},time={time},admin={admin}")
+        tokenDB.close()
+        return f"Token generated: {new_token}\r\n"
+
+        
+    def GetTokenInfo(rtoken):
+        tokenDB = open("./assets/db/tokens.db", "r").read()
+        tokens = tokenDB.split("\n")
+
+        for token in tokens:
+            if len(token) > 4:
+                if rtoken in token:
+                    return rtoken
+
+        return False
+        
+
 
     #
     #
