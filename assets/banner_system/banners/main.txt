@@ -1,7 +1,7 @@
                            {RED}╔═╗ ╦ ╦╔═╗╔╗╔╔╦╗╦ ╦╔╦╗
                            ║═╬╗║ ║╠═╣║║║ ║ ║ ║║║║
                            ╚═╝╚╚═╝╩ ╩╝╚╝ ╩ ╚═╝╩ ╩
-             {RED}User: {YELLOW} {USERNAME}
+            {RED}User: {YELLOW}{USERNAME}                   {RED}IP:{YELLOW} {CURRENTIP}
            {YELLOW}╔═══════════════════╗        ╔═════════════════════════╗
            ║  {RED}QuantumSec.Tech{YELLOW}  ║        ║ {RED}QuantumSec.Tech/discord{YELLOW} ║
            ╚═══════════════════╝        ╚═════════════════════════╝{RESET}
