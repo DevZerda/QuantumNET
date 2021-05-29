@@ -9,6 +9,7 @@ from ..banner_system.modify import *
 buffer_length = 1024
 
 def MainScreen(socket, ip):
+    socket.send(str(BannerModify.GetBannerFromFile("main_screen")).encode())
     socket.send("Choose an option: ".encode())
     option_dude = socket.recv(buffer_length).decode().strip().replace("\r\n", "")
     if int(option_dude) == 1:
