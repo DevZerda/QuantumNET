@@ -1,5 +1,0 @@
-     {YELLOW}╔══════════════════╗   ╔══════════════════════╗   ╔══════════════════╗
-     ║   {RED}Total Users{YELLOW}    ║   ║  {RED}Total Online Users{YELLOW}  ║   ║  {RED}Total Attacks{YELLOW}   ║
-     ╠══════════════════╣   ╠══════════════════════╣   ╠══════════════════╣
-     ║        {RED}{TOTALUSERS}{YELLOW}         ║   ║           {RED}{ONLINEUSERS}{YELLOW}          ║   ║        {RED}2{YELLOW}         ║
-     ╚══════════════════╝   ╚══════════════════════╝   ╚══════════════════╝{RESET}
