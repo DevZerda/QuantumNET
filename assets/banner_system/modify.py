@@ -59,6 +59,18 @@ class BannerFunc():
         bnnr = bnnr.replace("{ONLINEUSERS}", str(db_Stats.OnlineUsers()))
         bnnr = bnnr.replace("{TOTALATTACKS}", str(db_Stats.TotalAttack()))
 
+        if Current.CurrentInfo['Username'] == None or Current.CurrentInfo['Username'] == "":
+            Current.CurrentInfo['Username'] == "Error"
+
         bnnr = bnnr.replace("{USERNAME}", Current.CurrentInfo['Username'])
         bnnr = bnnr.replace("{CURRENTIP}", Current.CurrentInfo['IP'])
         return bnnr # Im pretty sure we will return banner right?
+
+class CustomBannerMaker:
+    def CreateMOTD(motd):
+        box = "                                                                            "
+        boxlen = len(box)
+
+        new_line = "MOTD:" + motd + box[len("MOTD:" + motd):len(box)]
+
+        return f"╔═════════════════════════════════════════════════════════════════════════════╗\r\n║ {new_line}║\r\n╚═════════════════════════════════════════════════════════════════════════════╝\r\n"
