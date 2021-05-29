@@ -62,13 +62,13 @@ class OS_Func:
             exit()
 
 class arrUtils:
-    def arr2str(arr):
+    def arr2str(arr, between):
         if isinstance(arr, list) == False:
             print("[x] Error, Invalid value provided!")
             exit(0)
         n_str = ""
         for u in arr:
-            n_str += u
+            n_str += u + between
 
         return n_str
 
