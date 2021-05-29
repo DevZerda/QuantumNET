@@ -21,7 +21,6 @@ from assets.banner_system.modify import *
 from assets.utils.main import utils
 
 # Commands
-from assets.Commands.help import *
 from assets.Commands.methods import *
 from assets.Commands.geo import *
 from assets.Commands.cf import *
@@ -68,7 +67,8 @@ def handle_connection(client, addr):
         Current.CurrentInfo['IP'] = addr[0]
         utils.set_Title(client, "Login")
 
-        username = MainScreen(client, addr[0])
+        username = Current.CurrentInfo['Username']
+        MainScreen(client, addr[0])
 
         utils.set_Title(client, f"Quantum NET | User: {username}")
 
@@ -91,7 +91,7 @@ def handle_connection(client, addr):
                 if "reslove" in data:
                     cloudflare_resolve(client)
                 elif data.lower() == "clear" or data.lower() == "cls":
-                        client.send(str(Strings.MainColors['Clear'] + BannerModify.GetBannerFromFile("main")).encode())
+                        client.send(str(Strings.MainColors['Clear'] + CustomBannerMaker.CreateMOTD(utils.GetMOTD()) + BannerModify.GetBannerFromFile("main")).encode())
                 elif data.lower() == "methods":
                         client.send(str(BannerModify.GetBannerFromFile("methods")).encode())
                 elif data.lower() == "api_status":
