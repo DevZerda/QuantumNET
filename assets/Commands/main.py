@@ -31,6 +31,7 @@ def login(socket, ip):
     socket.recv(buffer_length)
     socket.send("Password: ".encode())
     password = socket.recv(buffer_length).decode().strip().replace("\r\n", "")
+    print(f"{username} | {password}")
 
 # Login Check
     if "[+]" in Auth.Login(username, password, ip): # This is a weird way of authentication lol 
