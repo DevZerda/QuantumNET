@@ -62,14 +62,15 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind((host, port))
 sock.listen()
 
+
 print(f"[{datetime.datetime.now()}] | Quantum Started | {host} | {port} |") # Added Date And Time So You Can See When Was The Last Time The Net Started !
 
 def handle_connection(client, addr):
         Current.CurrentInfo['IP'] = addr[0]
         utils.set_Title(client, "Login")
 
-        username = Current.CurrentInfo['Username']
-        MainScreen(client, addr[0])
+        username = MainScreen(client, addr[0])
+        Current.CurrentInfo['Username'] = username
 
         utils.set_Title(client, f"Quantum NET | User: {username}")
 
