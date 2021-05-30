@@ -10,7 +10,7 @@ class CRUD:
 
         for user in users:
             if len(user) > 4:
-                if user.startswith("('" + Finduser):
+                if user.startswith(f"('{Finduser}','"):
                     user_found = True
                     new = user.replace("('", "")
                     new1 = new.replace("')", "")
