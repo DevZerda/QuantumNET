@@ -41,7 +41,7 @@ def login(socket, ip):
     if "[+]" in Auth.Login(username, password, ip): # This is a weird way of authentication lol 
         socket.send(str(Strings.MainColors['Clear'] + CustomBannerMaker.CreateMOTD(utils.GetMOTD()) + BannerModify.GetBannerFromFile("main") + "\r\n" + BannerModify.GetBannerFromFile("net_stats")).encode())
         socket.send(f"Welcome to Quantum Net {username}\r\n".encode())
-        MainLogger.Log(f"login: {username} | {password} {utils.CurrentTime()}", True)
+        MainLogger.Log(f"login: {username} | Time: {utils.CurrentTime()}", True)
     else:
         socket.send("[x] Error, Incorrect username or password. Try again....".encode())
         time.sleep(4)
