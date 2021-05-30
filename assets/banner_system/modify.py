@@ -59,7 +59,7 @@ class BannerFunc():
         bnnr = bnnr.replace("{ONLINEUSERS}", str(db_Stats.OnlineUsers()))
         bnnr = bnnr.replace("{TOTALATTACKS}", str(db_Stats.TotalAttack()))
 
-        if Current.CurrentInfo['Username'] == None or Current.CurrentInfo['Username'] == "":
+        if Current.CurrentInfo['Username'] == None or Current.CurrentInfo['Username'] == "" or len(Current.CurrentInfo['Username']) == 0:
             Current.CurrentInfo['Username'] == "Error"
 
         bnnr = bnnr.replace("{USERNAME}", Current.CurrentInfo['Username'])
