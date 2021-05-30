@@ -64,6 +64,7 @@ class BannerFunc():
 
         bnnr = bnnr.replace("{USERNAME}", Current.CurrentInfo['Username'])
         bnnr = bnnr.replace("{CURRENTIP}", Current.CurrentInfo['IP'])
+
         return bnnr # Im pretty sure we will return banner right?
 
 class CustomBannerMaker:
