@@ -30,7 +30,6 @@ def MainScreen(socket, ip):
 def login(socket, ip):
     socket.send(str(Strings.MainColors['Clear']).encode())
     # User Input Login Section
-    socket.recv(1024)
     socket.send("\rUsername: ".encode())
     username = socket.recv(buffer_length).decode().strip().replace("\r\n", "")
     socket.recv(1024)
