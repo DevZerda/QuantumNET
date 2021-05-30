@@ -1,5 +1,8 @@
-import os, time, time
+from tkinter import *
 
-from assets.banner_system.modify import *
+wow = Tk()
 
-print(CustomBannerMaker.CreateMOTD("testing this"))
+def ree(hi):
+  print(hi)
+  
+w = Button ( master=wow, command=ree('hi'), text="hi" )
