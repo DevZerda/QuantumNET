@@ -59,11 +59,11 @@ class BannerFunc():
         bnnr = bnnr.replace("{ONLINEUSERS}", str(db_Stats.OnlineUsers()))
         bnnr = bnnr.replace("{TOTALATTACKS}", str(db_Stats.TotalAttack()))
 
-        if Current.CurrentInfo['Username'] == None or Current.CurrentInfo['Username'] == "" or len(Current.CurrentInfo['Username']) == 0:
-            Current.CurrentInfo['Username'] == "Error"
+        # if Current.CurrentInfo['Username'] == None or Current.CurrentInfo['Username'] == "" or len(Current.CurrentInfo['Username']) == 0:
+        #     Current.CurrentInfo['Username'] == "Error"
 
-        bnnr = bnnr.replace("{USERNAME}", Current.CurrentInfo['Username'])
-        bnnr = bnnr.replace("{CURRENTIP}", Current.CurrentInfo['IP'])
+        # bnnr = bnnr.replace("{USERNAME}", Current.CurrentInfo['Username'])
+        # bnnr = bnnr.replace("{CURRENTIP}", Current.CurrentInfo['IP'])
 
         return bnnr # Im pretty sure we will return banner right?
 
