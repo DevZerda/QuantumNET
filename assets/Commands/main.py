@@ -22,18 +22,17 @@ def MainScreen(socket, ip):
     elif int(option_dude) == 4:
         about(socket)
     else:
-        socket.send("[x] Error, Invalid Argument\r\n".encode())
-        MainScreen(socket,ip)
+        socket.send(str("[x] Error, Invalid Argument\r\n").encode())
 
 
 
 def login(socket, ip):
     socket.send(str(Strings.MainColors['Clear']).encode())
     # User Input Login Section
-    socket.send("\rUsername: ".encode())
+    socket.send("Username: ".encode())
     username = socket.recv(buffer_length).decode().strip().replace("\r\n", "")
-    # socket.recv(1024)
-    socket.send("\rPassword: ".encode())
+    socket.recv(1024)
+    socket.send("Password: ".encode())
     password = socket.recv(buffer_length).decode().strip().replace("\r\n", "")
     print(f"{username} | {password}")
 
