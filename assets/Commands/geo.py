@@ -13,10 +13,9 @@ def geo_command(socket, argv):
     :param argv: arguments from cmd
     """
     if len(argv) == 2:
-        jsonResp = (requests.get(
-            "http://extreme-ip-lookup.com/json/" + argv[1]).text)
+        jsonResp = (requests.get("http://extreme-ip-lookup.com/json/" + argv[1]).text)
         fix = jsonResp.replace("\",\"", "\r\n")
         fix = fix.replace("\"", "").replace("{", "").replace("}", "")
-        socket.send(f"{fix}\r\n".encode("utf-8"))
+        socket.send(f"{fix}\r\n".encode(""))
     else:
         socket.send("[x] Error, Invalid Arugment\r\nUsage: geo <ip>")
