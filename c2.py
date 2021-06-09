@@ -2,7 +2,7 @@
 #
 # @title: Quantum NET
 # @since: 5/18/21
-# @creator: Quantum Security Team (vl0b, Exo, clever, Max, Beta)
+# @creator: Quantum Security Team (vl0b(Ashlee), Exo, clever, Max, Beta)
 #
 #
 
