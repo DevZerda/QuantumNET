@@ -19,6 +19,7 @@ def WindowsInstall():
     os.system("pip install discord_webhook")
 
 def UnixInstall():
+    os.system("apt install python3-pip")
     os.system("pip3 install requests")
     os.system("pip3 install discord_webhook")
 
